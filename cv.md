@@ -20,3 +20,19 @@ Here is an example of a semantic HTML structure I wrote:
     <h2>Article Title</h2>
     <p>Content goes here...</p>
 </article>
+## Experience & Projects
+### Project 1: Personal CV Website
+*This is my first web development project.*
+I created a semantic HTML document representing my Curriculum Vitae. I used over 20 different HTML tags and configured them using attributes.
+- **Technologies used:** HTML5, VS Code.
+- **Link:** [GitHub Repository](https://github.com/lucky-whale-ai/web_programming)
+
+## Education
+**B-R University** (2024 - Present)
+Programming Engineering, Bachelor's Degree.
+
+## Languages
+| Language | Level | Note |
+| :--- | :--- | :--- |
+| Russian | Native | - |
+| English | B1 (Intermediate) | Read technical documentation. |
