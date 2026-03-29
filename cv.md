@@ -20,6 +20,7 @@ Here is an example of a semantic HTML structure I wrote:
     <h2>Article Title</h2>
     <p>Content goes here...</p>
 </article>
+```
 ## Experience & Projects
 ### Project 1: Personal CV Website
 *This is my first web development project.*
