@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>СТР — современные технические решения</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="page-canvas">
   <header class="site-header">
     <div class="header-top">
       <button class="menu-button" type="button" aria-label="Открыть меню">
@@ -79,66 +81,78 @@
     </section>
 
     <section class="busbar-section" id="products">
-      <span class="section-number">02</span>
-      <h2 class="section-title">Шинопровод с новым видом изоляции</h2>
+      <div class="busbar-canvas">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Шинопровод с новым видом изоляции</h2>
 
-      <aside class="product-rail" aria-label="Преимущества продукта">
-        <span class="product-rail__cell is-dark" aria-hidden="true"></span>
-        <span class="product-rail__cell is-active">
-          <img class="product-rail__active-bg" src="assets/icons/active-rail-bg.svg" alt="">
-          <img src="assets/icons/product-innovation.svg" alt="">
-        </span>
-        <span class="product-rail__cell"><img src="assets/icons/product-control.svg" alt=""></span>
-        <span class="product-rail__cell"><img src="assets/icons/product-thermal.svg" alt=""></span>
-        <span class="product-rail__cell"><img src="assets/icons/product-strength.svg" alt=""></span>
-        <span class="product-rail__cell"><img src="assets/icons/product-power.svg" alt=""></span>
-      </aside>
+        <aside class="product-rail" aria-label="Преимущества продукта">
+          <span class="product-rail__indicator" aria-hidden="true">
+            <img src="assets/icons/active-rail-bg.svg" alt="">
+          </span>
+          <span class="product-rail__spacer" aria-hidden="true"></span>
+          <button class="product-rail__cell is-active" type="button" data-rail-index="0" aria-label="Инновационная конструкция" aria-pressed="true">
+            <img src="assets/icons/product-innovation.svg" alt="">
+          </button>
+          <button class="product-rail__cell" type="button" data-rail-index="1" aria-label="Контроль параметров" aria-pressed="false">
+            <img src="assets/icons/product-control.svg" alt="">
+          </button>
+          <button class="product-rail__cell" type="button" data-rail-index="2" aria-label="Тепловая эффективность" aria-pressed="false">
+            <img src="assets/icons/product-thermal.svg" alt="">
+          </button>
+          <button class="product-rail__cell" type="button" data-rail-index="3" aria-label="Механическая прочность" aria-pressed="false">
+            <img src="assets/icons/product-strength.svg" alt="">
+          </button>
+          <button class="product-rail__cell" type="button" data-rail-index="4" aria-label="Электрическая мощность" aria-pressed="false">
+            <img src="assets/icons/product-power.svg" alt="">
+          </button>
+        </aside>
 
-      <div class="facts">
-        <h3>Основные показатели</h3>
-        <div class="facts__grid">
-          <div class="facts__column">
-            <article class="fact">
-              <span>На</span>
-              <strong>10<small>%</small></strong>
-              <p>уменьшение массогабаритных показателей</p>
-            </article>
-            <article class="fact">
-              <span>До</span>
-              <strong>80<small>%</small></strong>
-              <p>повышение стойкости к низким температурам</p>
-            </article>
-            <article class="fact">
-              <span>В</span>
-              <strong>1,5<small>раз</small></strong>
-              <p>повышение электрической прочности</p>
-            </article>
+        <div class="facts">
+          <h3>Основные показатели</h3>
+          <div class="facts__grid">
+            <div class="facts__column">
+              <article class="fact">
+                <span>На</span>
+                <strong>10<small>%</small></strong>
+                <p>уменьшение массогабаритных показателей</p>
+              </article>
+              <article class="fact">
+                <span>До</span>
+                <strong>80<small>%</small></strong>
+                <p>повышение стойкости к низким температурам</p>
+              </article>
+              <article class="fact">
+                <span>В</span>
+                <strong>1,5<small>раз</small></strong>
+                <p>повышение электрической прочности</p>
+              </article>
+            </div>
+
+            <div class="busbar-product">
+              <span class="busbar-product__shape" aria-hidden="true"></span>
+              <img src="assets/images/busbar-assembly.png" alt="Шинопровод с новым видом изоляции">
+            </div>
+
+            <div class="facts__column">
+              <article class="fact">
+                <span>На</span>
+                <strong>30<small>%</small></strong>
+                <p>улучшение теплоотвода</p>
+              </article>
+              <article class="fact">
+                <span>На</span>
+                <strong>10<small>%</small></strong>
+                <p>повышение механической прочности</p>
+              </article>
+              <article class="fact">
+                <span>На</span>
+                <strong>30<small>%</small></strong>
+                <p>снижение металлоёмкости</p>
+              </article>
+            </div>
           </div>
-
-          <div class="busbar-product">
-            <span class="busbar-product__shape" aria-hidden="true"></span>
-            <img src="assets/images/busbar-assembly.png" alt="Шинопровод с новым видом изоляции">
-          </div>
-
-          <div class="facts__column">
-            <article class="fact">
-              <span>На</span>
-              <strong>30<small>%</small></strong>
-              <p>улучшение теплоотвода</p>
-            </article>
-            <article class="fact">
-              <span>На</span>
-              <strong>10<small>%</small></strong>
-              <p>повышение механической прочности</p>
-            </article>
-            <article class="fact">
-              <span>На</span>
-              <strong>30<small>%</small></strong>
-              <p>снижение металлоёмкости</p>
-            </article>
-          </div>
+          <a class="outline-button" href="#">Подробнее</a>
         </div>
-        <a class="outline-button" href="#">Подробнее</a>
       </div>
     </section>
 
@@ -174,20 +188,39 @@
           </div>
         </article>
       </div>
-      <span class="section-number">03</span>
-      <h2 class="recruit-heading">Технический рекрутинг</h2>
     </section>
 
     <section class="recruiting-section" id="recruiting">
-      <img class="recruiting-section__background" src="assets/images/recruiting-background.png" alt="">
-      <div class="recruiting-section__content">
-        <h2>Подбор технического</h2>
-        <a class="ghost-button" href="#">Подобрать персонал</a>
-      </div>
-      <div class="recruiting-services" aria-label="Направления подбора">
-        <span><img src="assets/icons/recruiting-service.svg" alt=""></span>
-        <span><img src="assets/icons/recruiting-service.svg" alt=""></span>
-        <span><img src="assets/icons/recruiting-service.svg" alt=""></span>
+      <header class="recruiting-heading">
+        <span class="section-number">03</span>
+        <h2>Технический рекрутинг</h2>
+      </header>
+
+      <div class="recruiting-visual">
+        <img class="recruiting-section__background" src="assets/images/recruiting-background.png" alt="">
+        <img class="recruiting-arrow" src="assets/icons/arrow-down-long.svg" alt="">
+
+        <div class="recruiting-copy">
+          <h3>Подбор технического<br>персонала с гарантиями</h3>
+          <p>Узкоспециализированный экспертный подход<br>к поиску и привлечению лучших сотрудников в<br>вашу компанию.</p>
+        </div>
+
+        <a class="ghost-button recruiting-button" href="#">Подобрать персонал</a>
+
+        <div class="recruiting-services" aria-label="Направления подбора">
+          <div class="recruiting-service">
+            <span>Информационные технологии</span>
+            <img src="assets/icons/recruiting-service.svg" alt="">
+          </div>
+          <div class="recruiting-service">
+            <span>Производство</span>
+            <img src="assets/icons/recruiting-service.svg" alt="">
+          </div>
+          <div class="recruiting-service">
+            <span>Энергетика</span>
+            <img src="assets/icons/recruiting-service.svg" alt="">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -286,7 +319,7 @@
       <div class="footer-contact">
         <img src="assets/icons/Frame.svg" alt="СТР">
         <address>Республика Беларусь, г. Могилёв,<br>ул. Ленинская, д. 42</address>
-        <p><a href="tel:+74845838678">+7 (484) 58 38 678</a><br><a href="mailto:info@str-techno.ru">info@str-techno.ru</a></p>
+        <p><a href="tel:+375296482731">+375 (29) 648-27-31</a><br><a href="mailto:info@str-techno.ru">info@str-techno.ru</a></p>
       </div>
 
       <div class="footer-bottom">
@@ -299,5 +332,6 @@
       </div>
     </div>
   </footer>
+  </div>
 </body>
 </html>
