@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>СТР — современные технические решения</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top">
+      <button class="menu-button" type="button" aria-label="Открыть меню">
+        <img src="assets/icons/menu.svg" alt="">
+      </button>
+
+      <a class="brand" href="#" aria-label="СТР">
+        <img src="assets/icons/Frame.svg" alt="СТР — современные технические решения">
+      </a>
+
+      <p class="header-location">
+        <img src="assets/icons/Location.svg" alt="">
+        г. Могилёв, ул. Ленинская, д. 42
+      </p>
+
+      <p class="header-language">
+        <img src="assets/icons/Geography.svg" alt="">
+        RU
+      </p>
+
+      <a class="header-phone" href="tel:88005553535">8-800-555-35-35</a>
+
+      <a class="header-mail" href="mailto:info@str-techno.ru" aria-label="Написать письмо">
+        <img src="assets/icons/Mail.svg" alt="">
+      </a>
+    </div>
+
+    <nav class="main-nav" aria-label="Главная навигация">
+      <div class="main-nav__inner">
+        <a href="#about">Компания</a>
+        <a class="is-active" href="#products">Наша продукция</a>
+        <a href="#recruiting">Подбор персонала</a>
+        <a href="#consulting">Консалтинг R&amp;D</a>
+        <a href="#recruiting">HR консалтинг</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section" id="about">
+      <span class="section-number">01</span>
+      <span class="section-line" aria-hidden="true"></span>
+      <img class="section-arrow" src="assets/icons/arrow-down-long.svg" alt="">
+
+      <div class="hero-collage" aria-hidden="true">
+        <img class="hero-collage__main" src="assets/images/hero-power-plant.png" alt="">
+        <div class="hero-collage__side">
+          <img src="assets/images/hero-busbars.png" alt="">
+          <img src="assets/images/worker-portrait.png" alt="">
+          <img src="assets/images/hero-connector.png" alt="">
+        </div>
+      </div>
+
+      <div class="hero-title">
+        <h1>Производство<br>Консалтинг (R&amp;D)<br>Технический рекрутинг</h1>
+      </div>
+
+      <div class="about-block">
+        <h2>О нас</h2>
+        <div class="about-columns">
+          <p>Компания СТР разрабатывает и производит современные шинопроводные системы для промышленных предприятий. Мы объединяем инженерную экспертизу, собственное производство и практический опыт реализации сложных проектов.</p>
+          <p>Мы сопровождаем заказчика на всех этапах: от технического аудита и проектирования до поставки оборудования и ввода в эксплуатацию. Наши решения повышают надёжность, энергоэффективность и безопасность объектов.</p>
+        </div>
+        <a class="more-link" href="#">
+          Узнать больше
+          <img src="assets/icons/link-arrow.svg" alt="">
+        </a>
+      </div>
+    </section>
+
+    <section class="busbar-section" id="products">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Шинопровод с новым видом изоляции</h2>
+
+      <aside class="product-rail" aria-label="Преимущества продукта">
+        <span class="product-rail__cell is-dark" aria-hidden="true"></span>
+        <span class="product-rail__cell is-active">
+          <img class="product-rail__active-bg" src="assets/icons/active-rail-bg.svg" alt="">
+          <img src="assets/icons/product-innovation.svg" alt="">
+        </span>
+        <span class="product-rail__cell"><img src="assets/icons/product-control.svg" alt=""></span>
+        <span class="product-rail__cell"><img src="assets/icons/product-thermal.svg" alt=""></span>
+        <span class="product-rail__cell"><img src="assets/icons/product-strength.svg" alt=""></span>
+        <span class="product-rail__cell"><img src="assets/icons/product-power.svg" alt=""></span>
+      </aside>
+
+      <div class="facts">
+        <h3>Основные показатели</h3>
+        <div class="facts__grid">
+          <div class="facts__column">
+            <article class="fact">
+              <span>На</span>
+              <strong>10<small>%</small></strong>
+              <p>уменьшение массогабаритных показателей</p>
+            </article>
+            <article class="fact">
+              <span>До</span>
+              <strong>80<small>%</small></strong>
+              <p>повышение стойкости к низким температурам</p>
+            </article>
+            <article class="fact">
+              <span>В</span>
+              <strong>1,5<small>раз</small></strong>
+              <p>повышение электрической прочности</p>
+            </article>
+          </div>
+
+          <div class="busbar-product">
+            <span class="busbar-product__shape" aria-hidden="true"></span>
+            <img src="assets/images/busbar-assembly.png" alt="Шинопровод с новым видом изоляции">
+          </div>
+
+          <div class="facts__column">
+            <article class="fact">
+              <span>На</span>
+              <strong>30<small>%</small></strong>
+              <p>улучшение теплоотвода</p>
+            </article>
+            <article class="fact">
+              <span>На</span>
+              <strong>10<small>%</small></strong>
+              <p>повышение механической прочности</p>
+            </article>
+            <article class="fact">
+              <span>На</span>
+              <strong>30<small>%</small></strong>
+              <p>снижение металлоёмкости</p>
+            </article>
+          </div>
+        </div>
+        <a class="outline-button" href="#">Подробнее</a>
+      </div>
+    </section>
+
+    <section class="projects-section">
+      <h2>Примеры проектов с использованием<br>шинопроводов</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <img src="assets/images/project-green-lines.png" alt="Проект Зеленые линии">
+          <div>
+            <h3>ООО «Зеленые линии»</h3>
+            <p>Калужская область</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <img src="assets/images/project-city.png" alt="Город на реке Тушино">
+          <div>
+            <h3>Город на реке Тушино</h3>
+            <p>Тушино, Москва</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <img src="assets/images/project-foundry.png" alt="ОДК Кузнецова">
+          <div>
+            <h3>ОДК Кузнецова</h3>
+            <p>г. Самара</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <img src="assets/images/project-building.png" alt="СТС Энергомонтаж">
+          <div>
+            <h3>СТС «Энергомонтаж»</h3>
+            <p>г. Мытищи, Московская обл.</p>
+          </div>
+        </article>
+      </div>
+      <span class="section-number">03</span>
+      <h2 class="recruit-heading">Технический рекрутинг</h2>
+    </section>
+
+    <section class="recruiting-section" id="recruiting">
+      <img class="recruiting-section__background" src="assets/images/recruiting-background.png" alt="">
+      <div class="recruiting-section__content">
+        <h2>Подбор технического</h2>
+        <a class="ghost-button" href="#">Подобрать персонал</a>
+      </div>
+      <div class="recruiting-services" aria-label="Направления подбора">
+        <span><img src="assets/icons/recruiting-service.svg" alt=""></span>
+        <span><img src="assets/icons/recruiting-service.svg" alt=""></span>
+        <span><img src="assets/icons/recruiting-service.svg" alt=""></span>
+      </div>
+    </section>
+
+    <section class="consulting-section" id="consulting">
+      <span class="section-number">04</span>
+      <h2>Консалтинг (R&amp;D)</h2>
+
+      <div class="consulting-list">
+        <article class="consulting-item is-open">
+          <div class="consulting-item__text">
+            <h3>Реализация научно-исследовательских работ</h3>
+            <p>Проводим комплексные исследования, разрабатываем технические решения и подтверждаем их эффективность расчётами и испытаниями. Результатом становится готовая документация для внедрения в производство.</p>
+            <a class="more-link" href="#">Узнать больше <img src="assets/icons/link-arrow.svg" alt=""></a>
+          </div>
+          <img src="assets/images/consulting-research.png" alt="">
+          <span class="consulting-item__arrow"><img src="assets/icons/arrow-up.svg" alt=""></span>
+        </article>
+
+        <article class="consulting-item">
+          <h3>Реализация опытно-конструкторских работ</h3>
+          <img src="assets/images/consulting-drawing.png" alt="">
+          <span class="consulting-item__arrow"><img src="assets/icons/arrow-down.svg" alt=""></span>
+        </article>
+
+        <article class="consulting-item">
+          <h3>Оценка состояния рынка<br>электротехнической продукции</h3>
+          <img src="assets/images/consulting-market.png" alt="">
+          <span class="consulting-item__arrow"><img src="assets/icons/arrow-down.svg" alt=""></span>
+        </article>
+
+        <article class="consulting-item">
+          <h3>Научно-техническая экспертиза отчетной<br>документации</h3>
+          <img src="assets/images/consulting-documents.png" alt="">
+          <span class="consulting-item__arrow"><img src="assets/icons/arrow-down.svg" alt=""></span>
+        </article>
+      </div>
+    </section>
+
+    <section class="news-section">
+      <span class="section-number">05</span>
+      <h2>Новости и публикации</h2>
+      <div class="news-grid">
+        <article class="news-card">
+          <img src="assets/images/news-busbar.png" alt="Испытания новой конструкции шинопровода">
+          <p>Новая конструкция шинопровода успешно прошла испытания на нагрев, механическую прочность и устойчивость к короткому замыканию.</p>
+          <footer><time datetime="2022-08-31">31.08.2022</time><a href="#">#шинопроводы</a></footer>
+        </article>
+        <article class="news-card">
+          <img src="assets/images/news-consulting.png" alt="Инженеры СТР на рабочей встрече">
+          <p>Инженеры СТР завершили исследование эффективности энергоснабжения промышленного предприятия и подготовили рекомендации.</p>
+          <footer><time datetime="2022-08-30">30.08.2022</time><a href="#">#техническийрекрутинг</a></footer>
+        </article>
+        <article class="news-card">
+          <img src="assets/images/news-market.png" alt="Аналитика рынка электротехнической продукции">
+          <p>Опубликован обзор российского рынка электротехнической продукции, ключевых тенденций и перспектив развития отрасли.</p>
+          <footer><time datetime="2022-08-29">29.08.2022</time><a href="#">#разное</a></footer>
+        </article>
+      </div>
+      <a class="outline-button" href="#">Все новости и публикации</a>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="footer-inner">
+      <div class="footer-columns">
+        <section>
+          <h2>Компания</h2>
+          <a href="#">О нас</a>
+          <a href="#">Публикации</a>
+          <a href="#">Наши партнеры</a>
+          <a href="#">Сотрудничество</a>
+          <a href="#">Инвесторам</a>
+          <a href="#">Сертификаты</a>
+        </section>
+        <section>
+          <h2>Продукция</h2>
+          <a href="#">Шинопроводы</a>
+          <a href="#">Гибкие шины</a>
+        </section>
+        <section>
+          <h2>Подбор персонала</h2>
+          <a href="#">Информационные технологии (IT)</a>
+          <a href="#">Энергетика</a>
+          <a href="#">Производство</a>
+          <a href="#">Продажи</a>
+        </section>
+        <section>
+          <h2>Консалтинг (R&amp;D)</h2>
+          <a href="#">Реализация научно-исследовательских работ</a>
+          <a href="#">Реализация опытно-конструкторских работ</a>
+          <a href="#">Оценка состояния рынка электротехнической продукции</a>
+          <a href="#">Научно-техническая экспертиза отчетной документации</a>
+        </section>
+      </div>
+
+      <div class="footer-contact">
+        <img src="assets/icons/Frame.svg" alt="СТР">
+        <address>Республика Беларусь, г. Могилёв,<br>ул. Ленинская, д. 42</address>
+        <p><a href="tel:+74845838678">+7 (484) 58 38 678</a><br><a href="mailto:info@str-techno.ru">info@str-techno.ru</a></p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2020 Компания СТР<br><a href="#">Политика конфиденциальности</a></p>
+        <div class="footer-partners">
+          <img src="assets/images/partner-energynet.png" alt="EnergyNet">
+          <img src="assets/images/partner-technopark.png" alt="Технопарк Обнинск">
+          <img src="assets/images/partner-technet.png" alt="Технет">
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
