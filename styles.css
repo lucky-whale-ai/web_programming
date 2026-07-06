@@ -345,7 +345,7 @@ button {
   display: inline-flex;
   margin-top: 48px;
   align-items: center;
-  gap: 38px;
+  gap: 65px;
   color: var(--blue-dark);
   font-size: 14px;
   font-weight: 700;
@@ -370,14 +370,14 @@ button {
 }
 
 .busbar-canvas > .section-number {
-  top: 148px;
+  top: 124px;
 }
 
 .section-title {
   margin: 0;
-  padding-top: 137px;
+  padding-top: 116px;
   text-align: center;
-  font-size: 52px;
+  font-size: 58px;
   font-weight: 400;
 }
 
@@ -385,7 +385,7 @@ button {
   --active-index: 0;
   --rail-row: 166.6667px;
   position: absolute;
-  top: 256px;
+  top: 194px;
   left: 0;
   display: grid;
   width: var(--rail);
@@ -443,7 +443,7 @@ button {
 
 .facts {
   width: var(--content-width);
-  margin: 144px 0 0 var(--content-left);
+  margin: 130px 0 0 var(--content-left);
   text-align: center;
 }
 
@@ -552,12 +552,14 @@ button {
 }
 
 .projects-section > h2:first-of-type {
+  position: relative;
+  top: -7px;
   margin: 0;
   padding-top: 120px;
   text-align: center;
-  font-size: 43px;
+  font-size: 46px;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.22;
 }
 
 .project-grid {
@@ -590,7 +592,7 @@ button {
   bottom: 0;
   width: 410px;
   min-height: 94px;
-  padding: 24px 32px;
+  padding: 12px 32px;
   background: #ffffff;
 }
 
@@ -617,19 +619,29 @@ button {
   height: 144px;
   color: var(--dark);
   background: #ffffff;
-  border-left: 1px solid var(--line);
-  margin-left: 185px;
+}
+
+.recruiting-heading::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 185px;
+  width: 1px;
+  content: "";
+  background: var(--line);
 }
 
 .recruiting-heading .section-number {
   top: 13px;
-  left: -116px;
+  left: 69px;
   font-size: 40px;
   font-weight: 500;
   letter-spacing: 2px;
 }
 
 .recruiting-heading h2 {
+  position: relative;
+  top: -22px;
   margin: 0;
   padding-top: 16px;
   text-align: center;
@@ -661,6 +673,8 @@ button {
 }
 
 .recruiting-copy h3 {
+  position: relative;
+  top: -7px;
   margin: 0;
   font-size: 40px;
   font-weight: 400;
@@ -766,7 +780,10 @@ button {
 }
 
 .consulting-section > h2 {
+  position: relative;
+  top: -7px;
   padding-top: 120px;
+  font-size: 56px;
 }
 
 .consulting-list {
@@ -781,7 +798,7 @@ button {
   min-height: 146px;
   padding-left: 64px;
   border-bottom: 1px solid var(--line);
-  grid-template-columns: 1fr 304px 80px;
+  grid-template-columns: 1fr 304px 127px;
   align-items: center;
 }
 
@@ -795,7 +812,7 @@ button {
 
 .consulting-item h3 {
   margin: 0;
-  font-size: 23px;
+  font-size: 24px;
   font-weight: 600;
   line-height: 1.25;
 }
@@ -809,7 +826,7 @@ button {
 }
 
 .consulting-item .more-link {
-  margin-top: 34px;
+  margin-top: 49px;
 }
 
 .consulting-item > img {
@@ -838,7 +855,10 @@ button {
 }
 
 .news-section > h2 {
+  position: relative;
+  top: -14px;
   padding-top: 66px;
+  font-size: 56px;
 }
 
 .news-grid {
@@ -851,14 +871,14 @@ button {
 
 .news-card {
   position: relative;
-  height: 526px;
+  height: 544px;
   padding: 22px;
   border: 1px solid var(--line);
 }
 
 .news-card > img {
   width: 100%;
-  height: 270px;
+  height: 283px;
   object-fit: cover;
 }
 
@@ -932,7 +952,7 @@ button {
 
 .footer-contact {
   display: grid;
-  margin-top: 40px;
+  margin-top: 62px;
   padding: 35px 0;
   border-top: 1px solid #dde2e6;
   border-bottom: 1px solid #dde2e6;
@@ -956,7 +976,7 @@ button {
 
 .footer-bottom {
   display: flex;
-  padding-top: 38px;
+  padding-top: 58px;
   justify-content: space-between;
   align-items: flex-start;
 }
