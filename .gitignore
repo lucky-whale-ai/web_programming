@@ -1,0 +1,13 @@
+# Local visual QA artifacts
+.qa/
+
+# Local study guides
+LAB_*_GUIDE.md
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local logs
+*.log
