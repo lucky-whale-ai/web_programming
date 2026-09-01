@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>СТР — современные технические решения</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=56">
 </head>
 <body>
   <div class="page-canvas">
@@ -45,6 +45,7 @@
         <a href="#contacts">Контакты</a>
       </div>
     </nav>
+
   </header>
 
   <main>
@@ -54,11 +55,23 @@
       <img class="section-arrow" src="assets/icons/arrow-down-long.svg" alt="">
 
       <div class="hero-collage" aria-hidden="true">
-        <img class="hero-collage__main" src="assets/images/hero-power-plant.png" alt="">
+        <picture class="hero-collage__main">
+          <source media="(min-width: 768px) and (max-width: 1199px)" srcset="assets/images/hero-power-plant-tablet.png">
+          <img src="assets/images/hero-power-plant.png" alt="">
+        </picture>
         <div class="hero-collage__side">
-          <img src="assets/images/hero-busbars.png" alt="">
-          <img src="assets/images/worker-portrait.png" alt="">
-          <img src="assets/images/hero-connector.png" alt="">
+          <picture>
+            <source media="(min-width: 768px) and (max-width: 1199px)" srcset="assets/images/hero-busbars-tablet.png">
+            <img src="assets/images/hero-busbars.png" alt="">
+          </picture>
+          <picture>
+            <source media="(min-width: 768px) and (max-width: 1199px)" srcset="assets/images/worker-portrait-tablet.png">
+            <img src="assets/images/worker-portrait.png" alt="">
+          </picture>
+          <picture>
+            <source media="(min-width: 768px) and (max-width: 1199px)" srcset="assets/images/hero-connector-tablet.png">
+            <img src="assets/images/hero-connector.png" alt="">
+          </picture>
         </div>
       </div>
 
@@ -82,7 +95,7 @@
     <section class="busbar-section" id="products">
       <div class="busbar-canvas">
         <span class="section-number">02</span>
-        <h2 class="section-title">Шинопровод с новым видом изоляции</h2>
+        <h2 class="section-title"><span class="tablet-title-line">Шинопровод</span><span class="tablet-title-line"> с новым видом</span><span class="tablet-title-line"> изоляции</span></h2>
 
         <aside class="product-rail" aria-label="Преимущества продукта">
           <span class="product-rail__indicator" aria-hidden="true">
@@ -152,21 +165,34 @@
           </div>
           <a class="outline-button" href="#">Подробнее</a>
         </div>
+
+        <div class="product-details" aria-label="Информация о шинопроводе">
+          <a href="#"><span>Информация<br>о продукции</span><img src="assets/icons/product-details-arrow.svg" alt=""></a>
+          <a href="#"><span>Особенности шинопровода СТР</span><img src="assets/icons/product-details-arrow.svg" alt=""></a>
+          <a href="#"><span>Преимущества шинопровода</span><img src="assets/icons/product-details-arrow.svg" alt=""></a>
+          <a href="#"><span>Сравнительная характеристика</span><img src="assets/icons/product-details-arrow.svg" alt=""></a>
+        </div>
       </div>
     </section>
 
     <section class="projects-section">
-      <h2>Примеры проектов с использованием&nbsp;<br>шинопроводов</h2>
+      <h2><span class="tablet-project-title-line">Примеры проектов</span> <span class="tablet-project-title-line">с использованием</span> <span class="tablet-project-title-line">шинопроводов</span></h2>
       <div class="project-grid">
         <article class="project-card">
-          <img src="assets/images/project-green-lines.png" alt="Проект Зеленые линии">
+          <picture>
+            <source media="(max-width: 1199px)" srcset="assets/images/project-green-lines-tablet.png">
+            <img src="assets/images/project-green-lines.png" alt="Проект Зеленые линии">
+          </picture>
           <div>
             <h3>ООО «Зеленые линии»</h3>
             <p>Калужская область</p>
           </div>
         </article>
         <article class="project-card">
-          <img src="assets/images/project-city.png" alt="Город на реке Тушино">
+          <picture>
+            <source media="(max-width: 1199px)" srcset="assets/images/project-city-tablet.png">
+            <img src="assets/images/project-city.png" alt="Город на реке Тушино">
+          </picture>
           <div>
             <h3>Город на реке Тушино</h3>
             <p>Тушино, Москва</p>
@@ -196,12 +222,15 @@
       </header>
 
       <div class="recruiting-visual">
-        <img class="recruiting-section__background" src="assets/images/recruiting-background.png" alt="">
+        <picture>
+          <source media="(min-width: 768px) and (max-width: 1199px)" srcset="assets/images/recruiting-background-tablet.png">
+          <img class="recruiting-section__background" src="assets/images/recruiting-background.png" alt="">
+        </picture>
         <img class="recruiting-arrow" src="assets/icons/arrow-down-long.svg" alt="">
 
         <div class="recruiting-copy">
-          <h3>Подбор технического<br>персонала с гарантиями</h3>
-          <p>Узкоспециализированный экспертный подход<br>к поиску и привлечению лучших сотрудников в<br>вашу компанию.</p>
+          <h3>Подбор технического<br> персонала с гарантиями</h3>
+          <p><span class="recruiting-copy__desktop-text">Узкоспециализированный экспертный подход<br> к поиску и привлечению лучших сотрудников в<br> вашу компанию.</span><span class="recruiting-copy__tablet-text">Узкоспециализированный<br>экспертный подход к поиску<br>и привлечению лучших сотрудников<br>в вашу компанию.</span></p>
         </div>
 
         <a class="ghost-button recruiting-button" href="#">Подобрать персонал</a>
@@ -234,7 +263,10 @@
             <p>Проводим комплексные исследования, разрабатываем технические решения и подтверждаем их эффективность расчётами и испытаниями. Результатом становится готовая документация для внедрения в производство.</p>
             <a class="more-link" href="#">Узнать больше <img src="assets/icons/link-arrow.svg" alt=""></a>
           </div>
-          <img src="assets/images/consulting-research.png" alt="">
+          <picture>
+            <source media="(min-width: 768px) and (max-width: 1199px)" srcset="assets/images/consulting-research-tablet.png">
+            <img src="assets/images/consulting-research.png" alt="">
+          </picture>
           <span class="consulting-item__arrow"><img src="assets/icons/arrow-up.svg" alt=""></span>
         </article>
 
