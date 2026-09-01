@@ -1,0 +1,492 @@
+/* Laboratory work 5: isolated motion layer. */
+
+:root {
+  --lab5-brand-scale: 1.035;
+  --lab5-hero-shift: 24px;
+  --lab5-reveal-scale: 0.985;
+  --lab5-more-shift: 8px;
+  --lab5-diamond-angle: 6deg;
+  --lab5-fact-scale: 1.05;
+  --lab5-card-lift: -8px;
+  --lab5-project-scale: 1.035;
+  --lab5-service-angle: 7deg;
+  --lab5-consulting-shift: 5px;
+  --lab5-news-scale: 0.985;
+}
+
+/* Keyboard focus stays visible without changing the resting layout. */
+:where(a, button):focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.menu-button:focus-visible {
+  outline-color: #ffffff;
+  outline-offset: -4px;
+}
+
+.recruiting-button:focus-visible {
+  outline-color: #ffffff;
+}
+
+/* 01. Brand: scale and shadow. */
+.brand {
+  transform-origin: center;
+  transition:
+    transform 220ms ease-out,
+    filter 220ms ease-out;
+}
+
+.brand:focus-visible,
+.brand:active {
+  filter: drop-shadow(0 8px 13px rgba(0, 114, 171, 0.22));
+  transform: scale(var(--lab5-brand-scale));
+}
+
+/* 02. Menu glyph: a short horizontal response. */
+.menu-button img,
+.menu-button::before {
+  transition:
+    transform 320ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 320ms ease-out,
+    box-shadow 320ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.menu-button:focus-visible img,
+.menu-button:active img,
+.menu-button:focus-visible::before,
+.menu-button:active::before {
+  filter: brightness(1.08);
+  transform: translateX(5px) skewX(-4deg);
+}
+
+/* 03. Main navigation: reveal a line while preserving the active line. */
+.main-nav a {
+  width: max-content;
+  justify-self: start;
+  transition: color 180ms ease-out;
+}
+
+.main-nav a::after {
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: left center;
+}
+
+.main-nav a:not(.is-active)::after {
+  position: absolute;
+  bottom: -36px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  content: "";
+  background: var(--blue);
+  transform: scaleX(0);
+}
+
+.main-nav a.is-active::after {
+  left: 0;
+  width: 100%;
+}
+
+.main-nav a:not(.is-active):focus-visible::after,
+.main-nav a.is-active::after {
+  transform: scaleX(1);
+}
+
+/* 04. Hero title: one entrance, then the exact original state. */
+.hero-title h1 {
+  animation: lab5-hero-title-in 650ms ease-out 80ms backwards;
+}
+
+@keyframes lab5-hero-title-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--lab5-hero-shift));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 05. Hero collage: staggered image reveals. */
+.hero-collage__main,
+.hero-collage__side > picture {
+  animation: lab5-photo-reveal 720ms ease-in-out backwards;
+  transform-origin: center;
+}
+
+.hero-collage__main {
+  animation-delay: 120ms;
+}
+
+.hero-collage__side > picture:nth-child(1) {
+  animation-delay: 220ms;
+}
+
+.hero-collage__side > picture:nth-child(2) {
+  animation-delay: 320ms;
+}
+
+.hero-collage__side > picture:nth-child(3) {
+  animation-delay: 420ms;
+}
+
+@keyframes lab5-photo-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    transform: scale(var(--lab5-reveal-scale));
+  }
+
+  to {
+    clip-path: inset(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 06. The leading section arrow nudges once and stops. */
+.section-arrow {
+  animation: lab5-arrow-nudge 850ms ease-in-out 900ms backwards;
+}
+
+@keyframes lab5-arrow-nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  45% {
+    transform: translateY(10px);
+  }
+
+  70% {
+    transform: translateY(4px);
+  }
+}
+
+/* 07. More-link arrow: horizontal travel. */
+.more-link img {
+  transition:
+    transform 240ms ease-out,
+    filter 240ms ease-out;
+}
+
+.more-link:focus-visible img,
+.more-link:active img {
+  filter: brightness(1.08);
+  transform: translateX(var(--lab5-more-shift));
+}
+
+/* 08. Busbar diamond: a brief elastic turn. */
+.busbar-product__shape {
+  transform-origin: center;
+}
+
+.busbar-product:active .busbar-product__shape,
+.facts:focus-within .busbar-product__shape {
+  animation: lab5-diamond-turn 700ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes lab5-diamond-turn {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+
+  58% {
+    transform: rotate(var(--lab5-diamond-angle));
+  }
+
+  78% {
+    transform: rotate(calc(var(--lab5-diamond-angle) * -0.45));
+  }
+}
+
+/* 09. Product facts: pulse the selected number. */
+.fact:active strong {
+  animation: lab5-fact-pulse 480ms ease-in-out;
+}
+
+@keyframes lab5-fact-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(0, 170, 255, 0));
+    transform: scale(1);
+  }
+
+  50% {
+    filter: drop-shadow(0 7px 10px rgba(0, 170, 255, 0.24));
+    transform: scale(var(--lab5-fact-scale));
+  }
+}
+
+/* 10. Buttons: a gradient sweep with no visible idle background. */
+.outline-button,
+.ghost-button {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 170, 255, 0.18) 50%,
+    rgba(0, 170, 255, 0.06) 100%
+  );
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 200% 100%;
+  transition:
+    background-position 550ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 240ms ease-out,
+    color 240ms ease-out;
+}
+
+.outline-button:focus-visible,
+.outline-button:active,
+.ghost-button:focus-visible,
+.ghost-button:active {
+  background-position: 100% 0;
+}
+
+/* 11. Project card: lift and shadow. */
+.project-card {
+  transition:
+    transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 260ms ease-out;
+}
+
+.project-card:active {
+  z-index: 1;
+  box-shadow: 0 20px 38px rgba(45, 56, 62, 0.2);
+  transform: translateY(var(--lab5-card-lift));
+}
+
+/* 12. Project image: zoom, saturation and the existing opacity change. */
+.project-card img {
+  transition:
+    opacity 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    filter 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+}
+
+.project-card:active img {
+  filter: saturate(1.18) contrast(1.03);
+  transform: scale(var(--lab5-project-scale));
+}
+
+/* 13. Recruiting service icon: rock without replacing translateX. */
+.recruiting-service:active img {
+  animation: lab5-service-rock 600ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  transform-origin: center bottom;
+}
+
+@keyframes lab5-service-rock {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+
+  30% {
+    rotate: var(--lab5-service-angle);
+  }
+
+  60% {
+    rotate: calc(var(--lab5-service-angle) * -0.7);
+  }
+
+  82% {
+    rotate: calc(var(--lab5-service-angle) * 0.35);
+  }
+}
+
+/* 14. Consulting rows: border tint and arrow response. */
+.consulting-item {
+  transition:
+    border-bottom-color 260ms ease-in-out,
+    background-color 260ms ease-in-out;
+}
+
+.consulting-item__arrow img {
+  transition:
+    transform 260ms ease-in-out,
+    opacity 260ms ease-in-out;
+}
+
+.consulting-item:focus-within,
+.consulting-item:active {
+  border-bottom-color: rgba(0, 170, 255, 0.55);
+  background-color: rgba(0, 170, 255, 0.025);
+}
+
+.consulting-item:focus-within .consulting-item__arrow img,
+.consulting-item:active .consulting-item__arrow img {
+  opacity: 0.78;
+  transform: translateX(var(--lab5-consulting-shift));
+}
+
+/* 15. News image: subtle desaturation and scale-down. */
+.news-card > img {
+  transition:
+    transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform-origin: center;
+}
+
+.news-card:focus-within > img,
+.news-card:active > img {
+  filter: saturate(0.92);
+  transform: scale(var(--lab5-news-scale));
+}
+
+/* 16. Partner logos: color intensity response. */
+.footer-partners img {
+  transition:
+    filter 350ms ease-in,
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+
+@media (max-width: 1199.98px) {
+  :root {
+    --lab5-brand-scale: 1.025;
+    --lab5-hero-shift: 16px;
+    --lab5-reveal-scale: 0.99;
+    --lab5-more-shift: 5px;
+    --lab5-diamond-angle: 4deg;
+    --lab5-fact-scale: 1.035;
+    --lab5-card-lift: -4px;
+    --lab5-project-scale: 1.02;
+    --lab5-service-angle: 5deg;
+    --lab5-consulting-shift: 3px;
+    --lab5-news-scale: 0.99;
+  }
+}
+
+@media (max-width: 767.98px) {
+  :root {
+    --lab5-brand-scale: 1.018;
+    --lab5-hero-shift: 10px;
+    --lab5-reveal-scale: 0.995;
+    --lab5-more-shift: 3px;
+    --lab5-diamond-angle: 3deg;
+    --lab5-fact-scale: 1.02;
+    --lab5-card-lift: 0px;
+    --lab5-project-scale: 1.01;
+    --lab5-service-angle: 3deg;
+    --lab5-consulting-shift: 2px;
+    --lab5-news-scale: 0.995;
+  }
+
+  .menu-button:focus-visible::before,
+  .menu-button:active::before {
+    box-shadow: 2px 11px #333333, 4px 22px #333333;
+    transform: translateX(2px) skewX(-3deg);
+  }
+
+  .project-card:active {
+    box-shadow: 0 10px 22px rgba(45, 56, 62, 0.14);
+    transform: none;
+  }
+}
+
+/* Hover effects are enabled only for devices that really support hover. */
+@media (hover: hover) {
+  .brand:hover {
+    filter: drop-shadow(0 8px 13px rgba(0, 114, 171, 0.22));
+    transform: scale(var(--lab5-brand-scale));
+  }
+
+  .menu-button:hover img,
+  .menu-button:hover::before {
+    filter: brightness(1.08);
+    transform: translateX(5px) skewX(-4deg);
+  }
+
+  .main-nav a:not(.is-active):hover::after {
+    transform: scaleX(1);
+  }
+
+  .more-link:hover img {
+    filter: brightness(1.08);
+    transform: translateX(var(--lab5-more-shift));
+  }
+
+  .busbar-product:hover .busbar-product__shape {
+    animation: lab5-diamond-turn 700ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  .fact:hover strong {
+    animation: lab5-fact-pulse 480ms ease-in-out;
+  }
+
+  .outline-button:hover,
+  .ghost-button:hover {
+    background-position: 100% 0;
+  }
+
+  .project-card:hover {
+    z-index: 1;
+    box-shadow: 0 20px 38px rgba(45, 56, 62, 0.2);
+    transform: translateY(var(--lab5-card-lift));
+  }
+
+  .project-card:hover img {
+    filter: saturate(1.18) contrast(1.03);
+    transform: scale(var(--lab5-project-scale));
+  }
+
+  .recruiting-service:hover img {
+    animation: lab5-service-rock 600ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+    transform-origin: center bottom;
+  }
+
+  .consulting-item:hover {
+    border-bottom-color: rgba(0, 170, 255, 0.55);
+    background-color: rgba(0, 170, 255, 0.025);
+  }
+
+  .consulting-item:hover .consulting-item__arrow img {
+    opacity: 0.78;
+    transform: translateX(var(--lab5-consulting-shift));
+  }
+
+  .news-card:hover > img {
+    filter: saturate(0.92);
+    transform: scale(var(--lab5-news-scale));
+  }
+
+  .footer-partners img:hover {
+    filter:
+      saturate(1.75)
+      brightness(1.1)
+      drop-shadow(0 4px 8px rgba(0, 170, 255, 0.4));
+    transform: translateY(-3px) scale(1.06);
+  }
+}
+
+/* Remove two pre-existing sticky hover states after a touch ends. */
+@media (hover: none) {
+  .outline-button:hover:not(:focus-visible):not(:active) {
+    border-color: #d8dde0;
+    color: var(--blue-dark);
+  }
+
+  .project-card:hover:not(:active) img {
+    filter: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Pixel Perfect checks use this mode: all elements remain at rest. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
