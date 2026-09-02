@@ -6,7 +6,8 @@
   <title>Каталог товаров и услуг — СТР</title>
   <link rel="stylesheet" href="styles.css?v=57">
   <link rel="stylesheet" href="catalog.css?v=3">
-  <script src="catalog.js?v=1" defer></script>
+  <link rel="stylesheet" href="commerce.css?v=1">
+  <script type="module" src="catalog.js?v=2"></script>
 </head>
 <body class="catalog-page">
   <div class="catalog-page__canvas">
@@ -31,6 +32,13 @@
           <a href="index.html#contacts">Контакты</a>
         </div>
       </nav>
+      <div class="shop-toolbar" aria-label="Разделы каталога">
+        <p>Данные загружаются с локального JSON Server</p>
+        <div class="shop-toolbar__links">
+          <a href="favorites.html">Избранное <span data-favorites-count>0</span></a>
+          <a href="cart.html">Корзина <span data-cart-count>0</span></a>
+        </div>
+      </div>
     </header>
 
     <main class="catalog-main">
@@ -41,49 +49,10 @@
         <a class="catalog-intro__back" href="index.html#products">Вернуться к разделу продукции</a>
       </section>
 
-      <section class="catalog-operations" aria-labelledby="operationsTitle">
-        <div class="catalog-section-heading">
-          <p>Этап 2</p>
-          <h2 id="operationsTitle">Операции с массивом</h2>
-        </div>
-        <div class="catalog-operation-grid" role="group" aria-label="Методы обработки массива">
-          <button class="catalog-operation" type="button" data-operation="map" aria-pressed="false">
-            <span>01</span><strong>map()</strong><small>Скидка 10%</small>
-          </button>
-          <button class="catalog-operation" type="button" data-operation="filter" aria-pressed="false">
-            <span>02</span><strong>filter()</strong><small>Рейтинг от 4,8</small>
-          </button>
-          <button class="catalog-operation" type="button" data-operation="reduce" aria-pressed="false">
-            <span>03</span><strong>reduce()</strong><small>Минимальная цена</small>
-          </button>
-          <button class="catalog-operation" type="button" data-operation="sort" aria-pressed="false">
-            <span>04</span><strong>sort()</strong><small>Цена по возрастанию</small>
-          </button>
-          <button class="catalog-operation" type="button" data-operation="find" aria-pressed="false">
-            <span>05</span><strong>find()</strong><small>Первый рейтинг 5,0</small>
-          </button>
-          <button class="catalog-operation" type="button" data-operation="slice" aria-pressed="false">
-            <span>06</span><strong>slice()</strong><small>Первые пять</small>
-          </button>
-          <button class="catalog-operation" type="button" data-operation="splice" aria-pressed="false">
-            <span>07</span><strong>splice()</strong><small>Средняя пятёрка</small>
-          </button>
-          <button class="catalog-operation" type="button" data-operation="reverse" aria-pressed="false">
-            <span>08</span><strong>reverse()</strong><small>Обратный порядок</small>
-          </button>
-          <button class="catalog-operation" type="button" data-operation="concat" aria-pressed="false">
-            <span>09</span><strong>concat()</strong><small>Продукты и R&amp;D</small>
-          </button>
-          <button class="catalog-operation" type="button" data-operation="forEach" aria-pressed="false">
-            <span>10</span><strong>forEach()</strong><small>Рекомендуемые</small>
-          </button>
-        </div>
-      </section>
-
       <section class="catalog-workspace" aria-labelledby="workspaceTitle">
         <div class="catalog-section-heading">
-          <p>Этап 3</p>
-          <h2 id="workspaceTitle">Поиск и фильтрация</h2>
+          <p>API Fetch</p>
+          <h2 id="workspaceTitle">Поиск и фильтрация на сервере</h2>
         </div>
 
         <div class="catalog-controls">
@@ -103,6 +72,41 @@
             </select>
           </label>
 
+          <label class="catalog-filter-field" for="catalogType">
+            <span>Тип позиции</span>
+            <select id="catalogType">
+              <option value="all">Все типы</option>
+              <option value="Товар">Товары</option>
+              <option value="Услуга">Услуги</option>
+            </select>
+          </label>
+
+          <label class="catalog-filter-field" for="catalogMinRating">
+            <span>Минимальный рейтинг</span>
+            <select id="catalogMinRating">
+              <option value="">Любой</option>
+              <option value="4.7">От 4,7</option>
+              <option value="4.8">От 4,8</option>
+              <option value="4.9">От 4,9</option>
+              <option value="5">Только 5,0</option>
+            </select>
+          </label>
+
+          <label class="catalog-filter-field" for="catalogMinPrice">
+            <span>Цена от, BYN</span>
+            <input id="catalogMinPrice" type="number" min="0" step="100" inputmode="numeric" placeholder="0">
+          </label>
+
+          <label class="catalog-filter-field" for="catalogMaxPrice">
+            <span>Цена до, BYN</span>
+            <input id="catalogMaxPrice" type="number" min="0" step="100" inputmode="numeric" placeholder="8000">
+          </label>
+
+          <label class="catalog-featured">
+            <input id="catalogFeatured" type="checkbox">
+            <span>Только рекомендуемые позиции</span>
+          </label>
+
           <fieldset class="catalog-categories">
             <legend>Категории</legend>
             <div class="catalog-categories__list" id="categoryFilters"></div>
@@ -117,6 +121,7 @@
         </div>
 
         <div class="catalog-grid" id="catalog" aria-describedby="catalogStatus"></div>
+        <nav class="catalog-pagination" id="catalogPagination" aria-label="Страницы каталога"></nav>
         <noscript><p class="catalog-noscript">Для формирования каталога необходимо включить JavaScript.</p></noscript>
       </section>
     </main>
@@ -130,5 +135,6 @@
       </div>
     </footer>
   </div>
+  <div class="shop-notice" id="shopNotice" role="status" aria-live="polite"></div>
 </body>
 </html>

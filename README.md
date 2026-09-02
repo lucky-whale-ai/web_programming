@@ -12,8 +12,24 @@
 
 ## Локальный запуск
 
+Установить зависимость JSON Server:
+
 ```powershell
-python -m http.server 8000
+pnpm install
 ```
 
-После запуска страница доступна по адресу `http://localhost:8000/`.
+Запустить API в первом терминале:
+
+```powershell
+pnpm api
+```
+
+JSON Server будет доступен по адресу `http://localhost:3000/`.
+
+Запустить статический сайт во втором терминале, например:
+
+```powershell
+python -m http.server 5500
+```
+
+После запуска главная страница доступна по адресу `http://localhost:5500/`, а каталог — по адресу `http://localhost:5500/catalog.html`.

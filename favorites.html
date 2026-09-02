@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Избранное — СТР</title>
+  <link rel="stylesheet" href="styles.css?v=57">
+  <link rel="stylesheet" href="catalog.css?v=3">
+  <link rel="stylesheet" href="commerce.css?v=1">
+  <script type="module" src="favorites.js?v=1"></script>
+</head>
+<body class="catalog-page">
+  <div class="catalog-page__canvas">
+    <header class="catalog-header">
+      <div class="catalog-header__top">
+        <a class="catalog-header__brand" href="index.html" aria-label="СТР — на главную">
+          <img src="assets/icons/Frame.svg" alt="СТР — современные технические решения">
+        </a>
+        <p class="catalog-header__location">
+          <img src="assets/icons/Location.svg" alt="">
+          г. Могилёв, ул. Ленинская, д. 42
+        </p>
+        <a class="catalog-header__phone" href="tel:88005553535">8-800-555-35-35</a>
+      </div>
+      <nav class="catalog-nav" aria-label="Навигация по сайту">
+        <div class="catalog-nav__inner">
+          <a href="index.html#about">Компания</a>
+          <a href="catalog.html">Каталог</a>
+          <a href="index.html#recruiting">Подбор персонала</a>
+          <a href="index.html#consulting">Консалтинг R&amp;D</a>
+          <a href="index.html#contacts">Контакты</a>
+        </div>
+      </nav>
+      <div class="shop-toolbar" aria-label="Разделы каталога">
+        <p>Данные избранного сохраняются в JSON Server</p>
+        <div class="shop-toolbar__links">
+          <a class="is-active" href="favorites.html" aria-current="page">Избранное <span data-favorites-count>0</span></a>
+          <a href="cart.html">Корзина <span data-cart-count>0</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main class="catalog-main">
+      <section class="catalog-intro" aria-labelledby="favoritesTitle">
+        <p class="catalog-intro__eyebrow">Персональная подборка</p>
+        <h1 id="favoritesTitle">Избранные решения</h1>
+        <p class="catalog-intro__text">Сохранённые товары и услуги доступны после обновления страницы благодаря JSON Server.</p>
+        <a class="catalog-intro__back" href="catalog.html">Вернуться в каталог</a>
+      </section>
+
+      <section class="shop-page-section" aria-labelledby="favoritesListTitle">
+        <div class="catalog-results-heading">
+          <h2 id="favoritesListTitle">Избранное</h2>
+          <p id="favoritesStatus" role="status" aria-live="polite">Загрузка…</p>
+        </div>
+        <div class="catalog-grid" id="favoritesList" aria-describedby="favoritesStatus" aria-busy="true"></div>
+        <noscript><p class="catalog-noscript">Для работы избранного необходимо включить JavaScript.</p></noscript>
+      </section>
+    </main>
+
+    <footer class="catalog-footer" id="contacts">
+      <div class="catalog-footer__inner">
+        <img src="assets/icons/Frame.svg" alt="СТР">
+        <address>Республика Беларусь, г. Могилёв,<br>ул. Ленинская, д. 42</address>
+        <p><a href="tel:+375296482731">+375 (29) 648-27-31</a><br><a href="mailto:info@str-techno.ru">info@str-techno.ru</a></p>
+        <a href="index.html">Главная страница</a>
+      </div>
+    </footer>
+  </div>
+  <div class="shop-notice" id="shopNotice" role="status" aria-live="polite"></div>
+</body>
+</html>

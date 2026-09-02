@@ -1,0 +1,171 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Шинопровод СТР 160А",
+      "category": "Шинопроводы",
+      "type": "Товар",
+      "price": 2450,
+      "rating": 4.7,
+      "description": "Компактная секция для распределения электроэнергии на производственных и коммерческих объектах.",
+      "image": "assets/images/busbar-assembly.png",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "Шинопровод СТР 250А",
+      "category": "Шинопроводы",
+      "type": "Товар",
+      "price": 3180,
+      "rating": 4.8,
+      "description": "Система со сниженной металлоёмкостью и улучшенным теплоотводом для распределительных сетей.",
+      "image": "assets/images/hero-busbars.png",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "name": "Шинопровод СТР 400А",
+      "category": "Шинопроводы",
+      "type": "Товар",
+      "price": 4650,
+      "rating": 4.9,
+      "description": "Модульное решение с усиленной изоляцией для подключения промышленного оборудования.",
+      "image": "assets/images/hero-connector.png",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "name": "Шинопровод СТР 630А",
+      "category": "Шинопроводы",
+      "type": "Товар",
+      "price": 6900,
+      "rating": 5,
+      "description": "Высокомощная линия для ответственных объектов с повышенными требованиями к надёжности.",
+      "image": "assets/images/news-busbar.png",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "name": "Комплект соединительных секций",
+      "category": "Шинопроводы",
+      "type": "Товар",
+      "price": 1280,
+      "rating": 4.6,
+      "description": "Набор прямых и угловых соединений для адаптации трассы шинопровода к геометрии объекта.",
+      "image": "assets/images/hero-busbars-tablet.png",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "name": "Технический аудит энергосистемы",
+      "category": "Инжиниринг R&D",
+      "type": "Услуга",
+      "price": 1900,
+      "rating": 4.9,
+      "description": "Обследование электрической инфраструктуры, выявление рисков и подготовка технических рекомендаций.",
+      "image": "assets/images/consulting-research.png",
+      "featured": true
+    },
+    {
+      "id": 7,
+      "name": "Проектирование шинопроводной трассы",
+      "category": "Инжиниринг R&D",
+      "type": "Услуга",
+      "price": 2700,
+      "rating": 5,
+      "description": "Разработка компоновки, расчёт нагрузок и выпуск комплекта проектной документации.",
+      "image": "assets/images/consulting-drawing.png",
+      "featured": true
+    },
+    {
+      "id": 8,
+      "name": "Лабораторные испытания оборудования",
+      "category": "Инжиниринг R&D",
+      "type": "Услуга",
+      "price": 3400,
+      "rating": 4.8,
+      "description": "Проверка нагрева, механической прочности и устойчивости оборудования к рабочим нагрузкам.",
+      "image": "assets/images/news-consulting.png",
+      "featured": false
+    },
+    {
+      "id": 9,
+      "name": "Исследование отраслевого рынка",
+      "category": "Инжиниринг R&D",
+      "type": "Услуга",
+      "price": 2200,
+      "rating": 4.7,
+      "description": "Анализ производителей, технических решений, ценовых сегментов и перспектив развития рынка.",
+      "image": "assets/images/consulting-market.png",
+      "featured": false
+    },
+    {
+      "id": 10,
+      "name": "Экспертиза технической документации",
+      "category": "Инжиниринг R&D",
+      "type": "Услуга",
+      "price": 1650,
+      "rating": 4.9,
+      "description": "Проверка расчётов, чертежей и отчётных материалов на соответствие техническому заданию.",
+      "image": "assets/images/consulting-documents.png",
+      "featured": true
+    },
+    {
+      "id": 11,
+      "name": "Подбор инженера-электрика",
+      "category": "Технический рекрутинг",
+      "type": "Услуга",
+      "price": 1450,
+      "rating": 4.8,
+      "description": "Поиск и первичная оценка специалиста с опытом эксплуатации промышленного электрооборудования.",
+      "image": "assets/images/worker-portrait.png",
+      "featured": true
+    },
+    {
+      "id": 12,
+      "name": "Формирование проектной команды",
+      "category": "Технический рекрутинг",
+      "type": "Услуга",
+      "price": 3900,
+      "rating": 4.9,
+      "description": "Комплексный подбор инженеров и руководителей для запуска нового промышленного проекта.",
+      "image": "assets/images/recruiting-background.png",
+      "featured": true
+    },
+    {
+      "id": 13,
+      "name": "Оценка инженерных компетенций",
+      "category": "Технический рекрутинг",
+      "type": "Услуга",
+      "price": 980,
+      "rating": 4.6,
+      "description": "Техническое интервью, проверка практических навыков и подготовка заключения по кандидату.",
+      "image": "assets/images/hero-worker.png",
+      "featured": false
+    },
+    {
+      "id": 14,
+      "name": "Шеф-монтаж и ввод в эксплуатацию",
+      "category": "Инженерный консалтинг",
+      "type": "Услуга",
+      "price": 5200,
+      "rating": 5,
+      "description": "Контроль монтажа, пусконаладочные работы и сопровождение запуска оборудования на объекте.",
+      "image": "assets/images/hero-power-plant.png",
+      "featured": true
+    },
+    {
+      "id": 15,
+      "name": "Модернизация системы электроснабжения",
+      "category": "Инженерный консалтинг",
+      "type": "Услуга",
+      "price": 7600,
+      "rating": 4.9,
+      "description": "Разработка и сопровождение комплекса мероприятий по повышению надёжности энергоснабжения.",
+      "image": "assets/images/project-foundry.png",
+      "featured": true
+    }
+  ],
+  "favorites": [],
+  "cart": []
+}

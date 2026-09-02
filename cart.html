@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корзина — СТР</title>
+  <link rel="stylesheet" href="styles.css?v=57">
+  <link rel="stylesheet" href="catalog.css?v=3">
+  <link rel="stylesheet" href="commerce.css?v=1">
+  <script type="module" src="cart.js?v=1"></script>
+</head>
+<body class="catalog-page">
+  <div class="catalog-page__canvas">
+    <header class="catalog-header">
+      <div class="catalog-header__top">
+        <a class="catalog-header__brand" href="index.html" aria-label="СТР — на главную">
+          <img src="assets/icons/Frame.svg" alt="СТР — современные технические решения">
+        </a>
+        <p class="catalog-header__location">
+          <img src="assets/icons/Location.svg" alt="">
+          г. Могилёв, ул. Ленинская, д. 42
+        </p>
+        <a class="catalog-header__phone" href="tel:88005553535">8-800-555-35-35</a>
+      </div>
+      <nav class="catalog-nav" aria-label="Навигация по сайту">
+        <div class="catalog-nav__inner">
+          <a href="index.html#about">Компания</a>
+          <a href="catalog.html">Каталог</a>
+          <a href="index.html#recruiting">Подбор персонала</a>
+          <a href="index.html#consulting">Консалтинг R&amp;D</a>
+          <a href="index.html#contacts">Контакты</a>
+        </div>
+      </nav>
+      <div class="shop-toolbar" aria-label="Разделы каталога">
+        <p>Состав корзины и количество хранятся в JSON Server</p>
+        <div class="shop-toolbar__links">
+          <a href="favorites.html">Избранное <span data-favorites-count>0</span></a>
+          <a class="is-active" href="cart.html" aria-current="page">Корзина <span data-cart-count>0</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main class="catalog-main">
+      <section class="catalog-intro" aria-labelledby="cartTitle">
+        <p class="catalog-intro__eyebrow">Заявка на решения</p>
+        <h1 id="cartTitle">Корзина покупок</h1>
+        <p class="catalog-intro__text">Изменяйте количество позиций, проверяйте общую стоимость и оформляйте учебный заказ.</p>
+        <a class="catalog-intro__back" href="catalog.html">Вернуться в каталог</a>
+      </section>
+
+      <section class="shop-page-section" aria-labelledby="cartListTitle">
+        <div class="catalog-results-heading">
+          <h2 id="cartListTitle">Состав корзины</h2>
+          <p id="cartStatus" role="status" aria-live="polite">Загрузка…</p>
+        </div>
+        <div class="cart-layout">
+          <div class="cart-list" id="cartList" aria-describedby="cartStatus" aria-busy="true"></div>
+          <aside class="cart-summary" id="cartSummary" aria-labelledby="cartSummaryTitle">
+            <h2 id="cartSummaryTitle">Итого</h2>
+            <p class="cart-summary__row"><span>Количество</span><strong id="cartTotalQuantity">0</strong></p>
+            <p class="cart-summary__row cart-summary__total"><span>Сумма</span><strong id="cartTotalPrice">0 BYN</strong></p>
+            <button class="cart-checkout" id="cartCheckout" type="button" disabled>Оформить покупку</button>
+          </aside>
+        </div>
+        <noscript><p class="catalog-noscript">Для работы корзины необходимо включить JavaScript.</p></noscript>
+      </section>
+    </main>
+
+    <footer class="catalog-footer" id="contacts">
+      <div class="catalog-footer__inner">
+        <img src="assets/icons/Frame.svg" alt="СТР">
+        <address>Республика Беларусь, г. Могилёв,<br>ул. Ленинская, д. 42</address>
+        <p><a href="tel:+375296482731">+375 (29) 648-27-31</a><br><a href="mailto:info@str-techno.ru">info@str-techno.ru</a></p>
+        <a href="index.html">Главная страница</a>
+      </div>
+    </footer>
+  </div>
+  <div class="shop-notice" id="shopNotice" role="status" aria-live="polite"></div>
+</body>
+</html>

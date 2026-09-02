@@ -1,192 +1,38 @@
 "use strict";
 
-const catalogItems = Object.freeze([
-  {
-    id: 1,
-    name: "Шинопровод СТР 160А",
-    category: "Шинопроводы",
-    type: "Товар",
-    price: 2450,
-    rating: 4.7,
-    description: "Компактная секция для распределения электроэнергии на производственных и коммерческих объектах.",
-    image: "assets/images/busbar-assembly.png",
-    featured: true
-  },
-  {
-    id: 2,
-    name: "Шинопровод СТР 250А",
-    category: "Шинопроводы",
-    type: "Товар",
-    price: 3180,
-    rating: 4.8,
-    description: "Система со сниженной металлоёмкостью и улучшенным теплоотводом для распределительных сетей.",
-    image: "assets/images/hero-busbars.png",
-    featured: false
-  },
-  {
-    id: 3,
-    name: "Шинопровод СТР 400А",
-    category: "Шинопроводы",
-    type: "Товар",
-    price: 4650,
-    rating: 4.9,
-    description: "Модульное решение с усиленной изоляцией для подключения промышленного оборудования.",
-    image: "assets/images/hero-connector.png",
-    featured: true
-  },
-  {
-    id: 4,
-    name: "Шинопровод СТР 630А",
-    category: "Шинопроводы",
-    type: "Товар",
-    price: 6900,
-    rating: 5,
-    description: "Высокомощная линия для ответственных объектов с повышенными требованиями к надёжности.",
-    image: "assets/images/news-busbar.png",
-    featured: true
-  },
-  {
-    id: 5,
-    name: "Комплект соединительных секций",
-    category: "Шинопроводы",
-    type: "Товар",
-    price: 1280,
-    rating: 4.6,
-    description: "Набор прямых и угловых соединений для адаптации трассы шинопровода к геометрии объекта.",
-    image: "assets/images/hero-busbars-tablet.png",
-    featured: false
-  },
-  {
-    id: 6,
-    name: "Технический аудит энергосистемы",
-    category: "Инжиниринг R&D",
-    type: "Услуга",
-    price: 1900,
-    rating: 4.9,
-    description: "Обследование электрической инфраструктуры, выявление рисков и подготовка технических рекомендаций.",
-    image: "assets/images/consulting-research.png",
-    featured: true
-  },
-  {
-    id: 7,
-    name: "Проектирование шинопроводной трассы",
-    category: "Инжиниринг R&D",
-    type: "Услуга",
-    price: 2700,
-    rating: 5,
-    description: "Разработка компоновки, расчёт нагрузок и выпуск комплекта проектной документации.",
-    image: "assets/images/consulting-drawing.png",
-    featured: true
-  },
-  {
-    id: 8,
-    name: "Лабораторные испытания оборудования",
-    category: "Инжиниринг R&D",
-    type: "Услуга",
-    price: 3400,
-    rating: 4.8,
-    description: "Проверка нагрева, механической прочности и устойчивости оборудования к рабочим нагрузкам.",
-    image: "assets/images/news-consulting.png",
-    featured: false
-  },
-  {
-    id: 9,
-    name: "Исследование отраслевого рынка",
-    category: "Инжиниринг R&D",
-    type: "Услуга",
-    price: 2200,
-    rating: 4.7,
-    description: "Анализ производителей, технических решений, ценовых сегментов и перспектив развития рынка.",
-    image: "assets/images/consulting-market.png",
-    featured: false
-  },
-  {
-    id: 10,
-    name: "Экспертиза технической документации",
-    category: "Инжиниринг R&D",
-    type: "Услуга",
-    price: 1650,
-    rating: 4.9,
-    description: "Проверка расчётов, чертежей и отчётных материалов на соответствие техническому заданию.",
-    image: "assets/images/consulting-documents.png",
-    featured: true
-  },
-  {
-    id: 11,
-    name: "Подбор инженера-электрика",
-    category: "Технический рекрутинг",
-    type: "Услуга",
-    price: 1450,
-    rating: 4.8,
-    description: "Поиск и первичная оценка специалиста с опытом эксплуатации промышленного электрооборудования.",
-    image: "assets/images/worker-portrait.png",
-    featured: true
-  },
-  {
-    id: 12,
-    name: "Формирование проектной команды",
-    category: "Технический рекрутинг",
-    type: "Услуга",
-    price: 3900,
-    rating: 4.9,
-    description: "Комплексный подбор инженеров и руководителей для запуска нового промышленного проекта.",
-    image: "assets/images/recruiting-background.png",
-    featured: true
-  },
-  {
-    id: 13,
-    name: "Оценка инженерных компетенций",
-    category: "Технический рекрутинг",
-    type: "Услуга",
-    price: 980,
-    rating: 4.6,
-    description: "Техническое интервью, проверка практических навыков и подготовка заключения по кандидату.",
-    image: "assets/images/hero-worker.png",
-    featured: false
-  },
-  {
-    id: 14,
-    name: "Шеф-монтаж и ввод в эксплуатацию",
-    category: "Инженерный консалтинг",
-    type: "Услуга",
-    price: 5200,
-    rating: 5,
-    description: "Контроль монтажа, пусконаладочные работы и сопровождение запуска оборудования на объекте.",
-    image: "assets/images/hero-power-plant.png",
-    featured: true
-  },
-  {
-    id: 15,
-    name: "Модернизация системы электроснабжения",
-    category: "Инженерный консалтинг",
-    type: "Услуга",
-    price: 7600,
-    rating: 4.9,
-    description: "Разработка и сопровождение комплекса мероприятий по повышению надёжности энергоснабжения.",
-    image: "assets/images/project-foundry.png",
-    featured: true
-  }
-]);
+import {
+  addCartEntry,
+  addFavorite,
+  getAllProducts,
+  getCart,
+  getFavorites,
+  getProducts,
+  removeFavorite,
+  updateCartEntry
+} from "./api.js";
+import {
+  createElement,
+  createProductCard,
+  createStateMessage,
+  getErrorMessage,
+  setNavigationCounts,
+  showNotice
+} from "./shop-ui.js";
 
-const operationLabels = Object.freeze({
-  all: "Исходный массив",
-  map: "map() — скидка 10%",
-  filter: "filter() — рейтинг от 4,8",
-  reduce: "reduce() — минимальная цена",
-  sort: "sort() — цена по возрастанию",
-  find: "find() — первый рейтинг 5,0",
-  slice: "slice() — первые пять",
-  splice: "splice() — средняя пятёрка",
-  reverse: "reverse() — обратный порядок",
-  concat: "concat() — продукты и R&D",
-  forEach: "forEach() — рекомендуемые"
-});
+const PAGE_LIMIT = 6;
+const SEARCH_DELAY = 350;
 
 const state = {
-  operation: "all",
   search: "",
   sort: "default",
-  categories: new Set()
+  categories: new Set(),
+  type: "all",
+  featured: false,
+  minPrice: "",
+  maxPrice: "",
+  minRating: "",
+  page: 1,
+  total: 0
 };
 
 const catalog = document.querySelector("#catalog");
@@ -194,274 +40,266 @@ const status = document.querySelector("#catalogStatus");
 const searchInput = document.querySelector("#catalogSearch");
 const sortSelect = document.querySelector("#catalogSort");
 const categoryFilters = document.querySelector("#categoryFilters");
+const typeSelect = document.querySelector("#catalogType");
+const featuredInput = document.querySelector("#catalogFeatured");
+const minPriceInput = document.querySelector("#catalogMinPrice");
+const maxPriceInput = document.querySelector("#catalogMaxPrice");
+const minRatingSelect = document.querySelector("#catalogMinRating");
 const resetButton = document.querySelector("#catalogReset");
-const operationButtons = document.querySelectorAll("[data-operation]");
+const pagination = document.querySelector("#catalogPagination");
 
-const currencyFormatter = new Intl.NumberFormat("ru-BY", {
-  style: "currency",
-  currency: "BYN",
-  maximumFractionDigits: 0
-});
+let favorites = [];
+let cart = [];
+let favoritesByProduct = new Map();
+let cartByProduct = new Map();
+let requestController = null;
+let searchTimer = null;
+let numericFilterTimer = null;
 
-const operationHandlers = {
-  all() {
-    return [...catalogItems];
-  },
+function mapEntriesByProduct(entries) {
+  return new Map(entries.map((entry) => [Number(entry.productId), entry]));
+}
 
-  map() {
-    return catalogItems.map((item) => ({
-      ...item,
-      originalPrice: item.price,
-      price: Math.round(item.price * 0.9),
-      badge: "Скидка 10%"
-    }));
-  },
+function syncRelatedState(nextFavorites = favorites, nextCart = cart) {
+  favorites = nextFavorites;
+  cart = nextCart;
+  favoritesByProduct = mapEntriesByProduct(favorites);
+  cartByProduct = mapEntriesByProduct(cart);
+  setNavigationCounts(favorites, cart);
+}
 
-  filter() {
-    return catalogItems.filter((item) => item.rating >= 4.8);
-  },
+function buildProductQuery() {
+  const params = new URLSearchParams();
+  const normalizedSearch = state.search.trim();
 
-  reduce() {
-    const cheapestItem = catalogItems.reduce((cheapest, item) => (
-      item.price < cheapest.price ? item : cheapest
-    ));
-    return [{ ...cheapestItem, badge: "Минимальная цена" }];
-  },
+  if (normalizedSearch) {
+    params.set("q", normalizedSearch);
+  }
 
-  sort() {
-    return [...catalogItems].sort((first, second) => first.price - second.price);
-  },
+  const sortParameters = {
+    "price-asc": ["price", "asc"],
+    "price-desc": ["price", "desc"],
+    "name-asc": ["name", "asc"],
+    "rating-desc": ["rating", "desc"]
+  };
+  const selectedSort = sortParameters[state.sort];
 
-  find() {
-    const foundItem = catalogItems.find((item) => item.rating === 5);
-    return foundItem ? [{ ...foundItem, badge: "Первый результат" }] : [];
-  },
+  if (selectedSort) {
+    params.set("_sort", selectedSort[0]);
+    params.set("_order", selectedSort[1]);
+  }
 
-  slice() {
-    return catalogItems.slice(0, 5);
-  },
+  for (const category of state.categories) {
+    params.append("category", category);
+  }
 
-  splice() {
-    const catalogCopy = [...catalogItems];
-    return catalogCopy.splice(5, 5);
-  },
+  if (state.type !== "all") {
+    params.set("type", state.type);
+  }
 
-  reverse() {
-    return [...catalogItems].reverse();
-  },
+  if (state.featured) {
+    params.set("featured", "true");
+  }
 
-  concat() {
-    const products = [];
-    const researchServices = [];
+  if (state.minPrice !== "") {
+    params.set("price_gte", state.minPrice);
+  }
 
-    for (const item of catalogItems) {
-      if (item.category === "Шинопроводы") {
-        products.push(item);
-      }
+  if (state.maxPrice !== "") {
+    params.set("price_lte", state.maxPrice);
+  }
 
-      if (item.category === "Инжиниринг R&D") {
-        researchServices.push(item);
-      }
+  if (state.minRating !== "") {
+    params.set("rating_gte", state.minRating);
+  }
+
+  params.set("_page", String(state.page));
+  params.set("_limit", String(PAGE_LIMIT));
+  return params;
+}
+
+function createPaginationButton(label, page, options = {}) {
+  const button = createElement("button", "catalog-pagination__button", label);
+  button.type = "button";
+  button.disabled = Boolean(options.disabled);
+
+  if (options.current) {
+    button.classList.add("is-current");
+    button.setAttribute("aria-current", "page");
+  }
+
+  button.addEventListener("click", () => {
+    if (page === state.page || button.disabled) {
+      return;
     }
 
-    return products.concat(researchServices);
-  },
-
-  forEach() {
-    const featuredItems = [];
-
-    catalogItems.forEach((item) => {
-      if (item.featured) {
-        featuredItems.push(item);
-      }
-    });
-
-    return featuredItems;
-  }
-};
-
-function normalizeText(value) {
-  return value.toLocaleLowerCase("ru").trim();
-}
-
-function applySearch(items) {
-  const query = normalizeText(state.search);
-
-  if (!query) {
-    return items;
-  }
-
-  return items.filter((item) => (
-    normalizeText(item.name).includes(query)
-    || normalizeText(item.description).includes(query)
-  ));
-}
-
-function applyCategoryFilter(items) {
-  if (state.categories.size === 0) {
-    return items;
-  }
-
-  return items.filter((item) => state.categories.has(item.category));
-}
-
-function applySort(items) {
-  const sortedItems = [...items];
-
-  switch (state.sort) {
-    case "price-asc":
-      return sortedItems.sort((first, second) => first.price - second.price);
-    case "price-desc":
-      return sortedItems.sort((first, second) => second.price - first.price);
-    case "name-asc":
-      return sortedItems.sort((first, second) => first.name.localeCompare(second.name, "ru"));
-    case "rating-desc":
-      return sortedItems.sort((first, second) => second.rating - first.rating);
-    default:
-      return sortedItems;
-  }
-}
-
-function createElement(tagName, className, text) {
-  const element = document.createElement(tagName);
-
-  if (className) {
-    element.className = className;
-  }
-
-  if (text !== undefined) {
-    element.textContent = text;
-  }
-
-  return element;
-}
-
-function createCatalogCard(item) {
-  const card = createElement("article", "catalog-card");
-  card.dataset.id = String(item.id);
-
-  const imageWrap = createElement("div", "catalog-card__image-wrap");
-  const image = document.createElement("img");
-  image.src = item.image;
-  image.alt = item.name;
-  image.loading = "lazy";
-  image.decoding = "async";
-  imageWrap.append(image);
-
-  if (item.badge) {
-    imageWrap.append(createElement("span", "catalog-card__badge", item.badge));
-  }
-
-  const content = createElement("div", "catalog-card__content");
-  const meta = createElement("div", "catalog-card__meta");
-  meta.append(
-    createElement("span", "", item.category),
-    createElement("span", "", item.type)
-  );
-
-  const title = createElement("h3", "", item.name);
-  const description = createElement("p", "catalog-card__description", item.description);
-
-  const footer = createElement("div", "catalog-card__footer");
-  const price = createElement("div", "catalog-card__price");
-  const formattedPrice = currencyFormatter.format(item.price);
-  const pricePrefix = item.type === "Услуга" ? "от " : "";
-  price.append(createElement("strong", "", `${pricePrefix}${formattedPrice}`));
-
-  if (item.originalPrice) {
-    price.append(createElement("del", "", currencyFormatter.format(item.originalPrice)));
-  }
-
-  const rating = createElement("span", "catalog-card__rating", `★ ${item.rating.toFixed(1)}`);
-  rating.setAttribute("aria-label", `Рейтинг ${item.rating.toFixed(1)} из 5`);
-
-  footer.append(price, rating);
-  content.append(meta, title, description, footer);
-  card.append(imageWrap, content);
-
-  return card;
-}
-
-function resetCatalog() {
-  state.operation = "all";
-  state.search = "";
-  state.sort = "default";
-  state.categories.clear();
-
-  searchInput.value = "";
-  sortSelect.value = "default";
-
-  for (const button of operationButtons) {
-    button.classList.remove("is-active");
-    button.setAttribute("aria-pressed", "false");
-  }
-
-  for (const checkbox of categoryFilters.querySelectorAll("input[type='checkbox']")) {
-    checkbox.checked = false;
-  }
-
-  renderCatalog();
-}
-
-function createEmptyState() {
-  const emptyState = createElement("section", "catalog-empty");
-  const content = createElement("div", "catalog-empty__content");
-  const title = createElement("h3", "", "Ничего не найдено");
-  const description = createElement(
-    "p",
-    "",
-    "Измените поисковый запрос, выберите другую категорию или сбросьте параметры каталога."
-  );
-  const button = createElement("button", "catalog-reset", "Сбросить параметры");
-  button.type = "button";
-  button.addEventListener("click", () => {
-    resetCatalog();
-    searchInput.focus();
+    state.page = page;
+    loadCatalog({ scrollToResults: true });
   });
 
-  content.append(title, description, button);
-  emptyState.append(content);
-  return emptyState;
+  return button;
 }
 
-function renderCatalog() {
-  const operationItems = operationHandlers[state.operation]();
-  const searchedItems = applySearch(operationItems);
-  const categoryItems = applyCategoryFilter(searchedItems);
-  const visibleItems = applySort(categoryItems);
+function renderPagination() {
+  const pageCount = Math.max(1, Math.ceil(state.total / PAGE_LIMIT));
+  const fragment = document.createDocumentFragment();
+  fragment.append(createPaginationButton("Назад", Math.max(1, state.page - 1), {
+    disabled: state.page === 1
+  }));
+
+  for (let page = 1; page <= pageCount; page += 1) {
+    fragment.append(createPaginationButton(String(page), page, {
+      current: page === state.page
+    }));
+  }
+
+  fragment.append(createPaginationButton("Вперёд", Math.min(pageCount, state.page + 1), {
+    disabled: state.page === pageCount
+  }));
+  pagination.replaceChildren(fragment);
+  pagination.hidden = state.total === 0;
+}
+
+async function toggleFavorite(product) {
+  const existingFavorite = favoritesByProduct.get(Number(product.id));
+
+  if (existingFavorite) {
+    await removeFavorite(existingFavorite.id);
+    syncRelatedState(
+      favorites.filter((entry) => entry.id !== existingFavorite.id),
+      cart
+    );
+    showNotice("Позиция удалена из избранного.");
+    return false;
+  }
+
+  const createdFavorite = await addFavorite(product.id);
+  syncRelatedState([...favorites, createdFavorite], cart);
+  showNotice("Позиция добавлена в избранное.");
+  return true;
+}
+
+async function addProductToCart(product) {
+  const existingEntry = cartByProduct.get(Number(product.id));
+
+  if (existingEntry) {
+    const updatedEntry = await updateCartEntry(existingEntry.id, Number(existingEntry.quantity) + 1);
+    cart = cart.map((entry) => (
+      entry.id === existingEntry.id
+        ? { ...entry, ...updatedEntry, product: entry.product }
+        : entry
+    ));
+    syncRelatedState(favorites, cart);
+    showNotice("Количество товара в корзине увеличено.");
+    return Number(updatedEntry.quantity);
+  }
+
+  const createdEntry = await addCartEntry(product.id, 1);
+  syncRelatedState(favorites, [...cart, createdEntry]);
+  showNotice("Позиция добавлена в корзину.");
+  return 1;
+}
+
+function renderProducts(products) {
+  if (products.length === 0) {
+    catalog.replaceChildren(createStateMessage({
+      title: "Ничего не найдено",
+      description: "Измените поисковый запрос, категории или числовые диапазоны.",
+      actionText: "Сбросить параметры",
+      onAction: resetCatalog
+    }));
+    return;
+  }
+
   const fragment = document.createDocumentFragment();
 
-  if (visibleItems.length === 0) {
-    fragment.append(createEmptyState());
-  } else {
-    for (const item of visibleItems) {
-      fragment.append(createCatalogCard(item));
-    }
+  for (const product of products) {
+    const favorite = favoritesByProduct.get(Number(product.id));
+    const cartEntry = cartByProduct.get(Number(product.id));
+    fragment.append(createProductCard(product, {
+      favoriteActive: Boolean(favorite),
+      cartQuantity: Number(cartEntry?.quantity || 0),
+      onFavorite: toggleFavorite,
+      onCart: addProductToCart
+    }));
   }
 
   catalog.replaceChildren(fragment);
-  status.textContent = `Показано: ${visibleItems.length} из ${operationItems.length}. ${operationLabels[state.operation]}.`;
 }
 
-function renderCategoryFilters() {
-  const categories = new Set();
+async function loadCatalog(options = {}) {
+  requestController?.abort();
+  requestController = new AbortController();
+  catalog.setAttribute("aria-busy", "true");
+  status.textContent = "Загрузка данных с JSON Server…";
 
-  for (const item of catalogItems) {
-    categories.add(item.category);
+  if (catalog.childElementCount === 0) {
+    catalog.replaceChildren(createStateMessage({
+      title: "Загрузка каталога",
+      description: "Получаем актуальные данные с локального сервера."
+    }));
   }
 
+  try {
+    const response = await getProducts(buildProductQuery(), {
+      signal: requestController.signal
+    });
+    const products = Array.isArray(response.data) ? response.data : [];
+    state.total = response.total ?? products.length;
+    const pageCount = Math.max(1, Math.ceil(state.total / PAGE_LIMIT));
+
+    if (state.page > pageCount) {
+      state.page = pageCount;
+      await loadCatalog(options);
+      return;
+    }
+
+    renderProducts(products);
+    renderPagination();
+    const firstResult = state.total === 0 ? 0 : (state.page - 1) * PAGE_LIMIT + 1;
+    const lastResult = Math.min(state.page * PAGE_LIMIT, state.total);
+    status.textContent = state.total === 0
+      ? "По заданным параметрам позиций не найдено."
+      : `Показано ${firstResult}–${lastResult} из ${state.total}. Страница ${state.page} из ${pageCount}.`;
+
+    if (options.scrollToResults) {
+      document.querySelector(".catalog-results-heading")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  } catch (error) {
+    if (error.name === "AbortError") {
+      return;
+    }
+
+    state.total = 0;
+    pagination.hidden = true;
+    status.textContent = "Каталог временно недоступен.";
+    catalog.replaceChildren(createStateMessage({
+      title: "Не удалось загрузить каталог",
+      description: getErrorMessage(error),
+      actionText: "Повторить запрос",
+      onAction: loadCatalog
+    }));
+  } finally {
+    catalog.setAttribute("aria-busy", "false");
+  }
+}
+
+function renderCategoryFilters(products) {
+  const categories = new Set(products.map((product) => product.category));
   const fragment = document.createDocumentFragment();
   let categoryIndex = 0;
 
   for (const category of categories) {
     const label = createElement("label", "catalog-category");
     const checkbox = document.createElement("input");
-    const labelText = createElement("span", "", category);
     checkbox.type = "checkbox";
     checkbox.value = category;
     checkbox.id = `category-${categoryIndex}`;
     label.htmlFor = checkbox.id;
-    label.append(checkbox, labelText);
+    label.append(checkbox, createElement("span", "", category));
     fragment.append(label);
     categoryIndex += 1;
   }
@@ -469,28 +307,49 @@ function renderCategoryFilters() {
   categoryFilters.replaceChildren(fragment);
 }
 
-for (const button of operationButtons) {
-  button.addEventListener("click", () => {
-    state.operation = button.dataset.operation;
+function resetCatalog() {
+  window.clearTimeout(searchTimer);
+  window.clearTimeout(numericFilterTimer);
+  state.search = "";
+  state.sort = "default";
+  state.categories.clear();
+  state.type = "all";
+  state.featured = false;
+  state.minPrice = "";
+  state.maxPrice = "";
+  state.minRating = "";
+  state.page = 1;
 
-    for (const operationButton of operationButtons) {
-      const isActive = operationButton === button;
-      operationButton.classList.toggle("is-active", isActive);
-      operationButton.setAttribute("aria-pressed", String(isActive));
-    }
+  searchInput.value = "";
+  sortSelect.value = "default";
+  typeSelect.value = "all";
+  featuredInput.checked = false;
+  minPriceInput.value = "";
+  maxPriceInput.value = "";
+  minRatingSelect.value = "";
 
-    renderCatalog();
-  });
+  for (const checkbox of categoryFilters.querySelectorAll("input[type='checkbox']")) {
+    checkbox.checked = false;
+  }
+
+  loadCatalog();
+}
+
+function requestFromFirstPage() {
+  state.page = 1;
+  loadCatalog();
 }
 
 searchInput.addEventListener("input", () => {
   state.search = searchInput.value;
-  renderCatalog();
+  state.page = 1;
+  window.clearTimeout(searchTimer);
+  searchTimer = window.setTimeout(loadCatalog, SEARCH_DELAY);
 });
 
 sortSelect.addEventListener("change", () => {
   state.sort = sortSelect.value;
-  renderCatalog();
+  requestFromFirstPage();
 });
 
 categoryFilters.addEventListener("change", (event) => {
@@ -506,10 +365,60 @@ categoryFilters.addEventListener("change", (event) => {
     state.categories.delete(checkbox.value);
   }
 
-  renderCatalog();
+  requestFromFirstPage();
+});
+
+typeSelect.addEventListener("change", () => {
+  state.type = typeSelect.value;
+  requestFromFirstPage();
+});
+
+featuredInput.addEventListener("change", () => {
+  state.featured = featuredInput.checked;
+  requestFromFirstPage();
+});
+
+function scheduleNumericFilter() {
+  state.minPrice = minPriceInput.value;
+  state.maxPrice = maxPriceInput.value;
+  state.page = 1;
+  window.clearTimeout(numericFilterTimer);
+  numericFilterTimer = window.setTimeout(loadCatalog, 250);
+}
+
+minPriceInput.addEventListener("input", scheduleNumericFilter);
+maxPriceInput.addEventListener("input", scheduleNumericFilter);
+
+minRatingSelect.addEventListener("change", () => {
+  state.minRating = minRatingSelect.value;
+  requestFromFirstPage();
 });
 
 resetButton.addEventListener("click", resetCatalog);
 
-renderCategoryFilters();
-renderCatalog();
+async function initializeCatalog() {
+  catalog.setAttribute("aria-busy", "true");
+
+  try {
+    const [products, favoriteEntries, cartEntries] = await Promise.all([
+      getAllProducts(),
+      getFavorites(),
+      getCart()
+    ]);
+    renderCategoryFilters(products);
+    syncRelatedState(favoriteEntries, cartEntries);
+    await loadCatalog();
+  } catch (error) {
+    status.textContent = "Каталог временно недоступен.";
+    catalog.replaceChildren(createStateMessage({
+      title: "JSON Server недоступен",
+      description: getErrorMessage(error),
+      actionText: "Повторить подключение",
+      onAction: initializeCatalog
+    }));
+  } finally {
+    catalog.setAttribute("aria-busy", "false");
+  }
+}
+
+initializeCatalog();
