@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог товаров и услуг — СТР</title>
+  <link rel="stylesheet" href="styles.css?v=57">
+  <link rel="stylesheet" href="catalog.css?v=3">
+  <script src="catalog.js?v=1" defer></script>
+</head>
+<body class="catalog-page">
+  <div class="catalog-page__canvas">
+    <header class="catalog-header">
+      <div class="catalog-header__top">
+        <a class="catalog-header__brand" href="index.html" aria-label="СТР — на главную">
+          <img src="assets/icons/Frame.svg" alt="СТР — современные технические решения">
+        </a>
+        <p class="catalog-header__location">
+          <img src="assets/icons/Location.svg" alt="">
+          г. Могилёв, ул. Ленинская, д. 42
+        </p>
+        <a class="catalog-header__phone" href="tel:88005553535">8-800-555-35-35</a>
+      </div>
+
+      <nav class="catalog-nav" aria-label="Навигация по сайту">
+        <div class="catalog-nav__inner">
+          <a href="index.html#about">Компания</a>
+          <a class="is-active" href="catalog.html" aria-current="page">Каталог</a>
+          <a href="index.html#recruiting">Подбор персонала</a>
+          <a href="index.html#consulting">Консалтинг R&amp;D</a>
+          <a href="index.html#contacts">Контакты</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="catalog-main">
+      <section class="catalog-intro" aria-labelledby="catalogTitle">
+        <p class="catalog-intro__eyebrow">Товары и услуги СТР</p>
+        <h1 id="catalogTitle">Каталог инженерных решений</h1>
+        <p class="catalog-intro__text">Шинопроводные системы, инженерные исследования, технический рекрутинг и сопровождение промышленных проектов.</p>
+        <a class="catalog-intro__back" href="index.html#products">Вернуться к разделу продукции</a>
+      </section>
+
+      <section class="catalog-operations" aria-labelledby="operationsTitle">
+        <div class="catalog-section-heading">
+          <p>Этап 2</p>
+          <h2 id="operationsTitle">Операции с массивом</h2>
+        </div>
+        <div class="catalog-operation-grid" role="group" aria-label="Методы обработки массива">
+          <button class="catalog-operation" type="button" data-operation="map" aria-pressed="false">
+            <span>01</span><strong>map()</strong><small>Скидка 10%</small>
+          </button>
+          <button class="catalog-operation" type="button" data-operation="filter" aria-pressed="false">
+            <span>02</span><strong>filter()</strong><small>Рейтинг от 4,8</small>
+          </button>
+          <button class="catalog-operation" type="button" data-operation="reduce" aria-pressed="false">
+            <span>03</span><strong>reduce()</strong><small>Минимальная цена</small>
+          </button>
+          <button class="catalog-operation" type="button" data-operation="sort" aria-pressed="false">
+            <span>04</span><strong>sort()</strong><small>Цена по возрастанию</small>
+          </button>
+          <button class="catalog-operation" type="button" data-operation="find" aria-pressed="false">
+            <span>05</span><strong>find()</strong><small>Первый рейтинг 5,0</small>
+          </button>
+          <button class="catalog-operation" type="button" data-operation="slice" aria-pressed="false">
+            <span>06</span><strong>slice()</strong><small>Первые пять</small>
+          </button>
+          <button class="catalog-operation" type="button" data-operation="splice" aria-pressed="false">
+            <span>07</span><strong>splice()</strong><small>Средняя пятёрка</small>
+          </button>
+          <button class="catalog-operation" type="button" data-operation="reverse" aria-pressed="false">
+            <span>08</span><strong>reverse()</strong><small>Обратный порядок</small>
+          </button>
+          <button class="catalog-operation" type="button" data-operation="concat" aria-pressed="false">
+            <span>09</span><strong>concat()</strong><small>Продукты и R&amp;D</small>
+          </button>
+          <button class="catalog-operation" type="button" data-operation="forEach" aria-pressed="false">
+            <span>10</span><strong>forEach()</strong><small>Рекомендуемые</small>
+          </button>
+        </div>
+      </section>
+
+      <section class="catalog-workspace" aria-labelledby="workspaceTitle">
+        <div class="catalog-section-heading">
+          <p>Этап 3</p>
+          <h2 id="workspaceTitle">Поиск и фильтрация</h2>
+        </div>
+
+        <div class="catalog-controls">
+          <label class="catalog-search" for="catalogSearch">
+            <span>Поиск по названию или описанию</span>
+            <input id="catalogSearch" type="search" placeholder="Например, проектирование" autocomplete="off">
+          </label>
+
+          <label class="catalog-sort" for="catalogSort">
+            <span>Сортировка</span>
+            <select id="catalogSort">
+              <option value="default">По умолчанию</option>
+              <option value="price-asc">Цена: сначала дешевле</option>
+              <option value="price-desc">Цена: сначала дороже</option>
+              <option value="name-asc">Название: А–Я</option>
+              <option value="rating-desc">Рейтинг: по убыванию</option>
+            </select>
+          </label>
+
+          <fieldset class="catalog-categories">
+            <legend>Категории</legend>
+            <div class="catalog-categories__list" id="categoryFilters"></div>
+          </fieldset>
+
+          <button class="catalog-reset" id="catalogReset" type="button">Сбросить параметры</button>
+        </div>
+
+        <div class="catalog-results-heading">
+          <h2>Результат</h2>
+          <p id="catalogStatus" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="catalog-grid" id="catalog" aria-describedby="catalogStatus"></div>
+        <noscript><p class="catalog-noscript">Для формирования каталога необходимо включить JavaScript.</p></noscript>
+      </section>
+    </main>
+
+    <footer class="catalog-footer" id="contacts">
+      <div class="catalog-footer__inner">
+        <img src="assets/icons/Frame.svg" alt="СТР">
+        <address>Республика Беларусь, г. Могилёв,<br>ул. Ленинская, д. 42</address>
+        <p><a href="tel:+375296482731">+375 (29) 648-27-31</a><br><a href="mailto:info@str-techno.ru">info@str-techno.ru</a></p>
+        <a href="index.html">Главная страница</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
