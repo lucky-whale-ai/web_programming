@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ-панель — СТР</title>
+  <link rel="stylesheet" href="styles.css?v=57">
+  <link rel="stylesheet" href="catalog.css?v=3">
+  <link rel="stylesheet" href="commerce.css?v=1">
+  <link rel="stylesheet" href="forms.css?v=1">
+  <script type="module" src="admin.js?v=1"></script>
+</head>
+<body class="catalog-page">
+  <div class="catalog-page__canvas">
+    <header class="catalog-header">
+      <div class="catalog-header__top">
+        <a class="catalog-header__brand" href="index.html" aria-label="СТР — на главную">
+          <img src="assets/icons/Frame.svg" alt="СТР — современные технические решения">
+        </a>
+        <p class="catalog-header__location">
+          <img src="assets/icons/Location.svg" alt="">
+          г. Могилёв, ул. Ленинская, д. 42
+        </p>
+        <a class="catalog-header__phone" href="tel:88005553535">8-800-555-35-35</a>
+      </div>
+      <nav class="catalog-nav" aria-label="Навигация по сайту">
+        <div class="catalog-nav__inner">
+          <a href="index.html#about">Компания</a>
+          <a href="catalog.html">Каталог</a>
+          <a href="feedback.html">Отзывы</a>
+          <a class="is-active" id="adminNavLink" href="admin.html" aria-current="page" hidden>Админ-панель</a>
+          <a href="index.html#contacts">Контакты</a>
+        </div>
+      </nav>
+      <div class="shop-toolbar" aria-label="Управление аккаунтом">
+        <p>Раздел доступен только пользователю с ролью администратора</p>
+        <div class="shop-toolbar__links"><span data-account-area></span></div>
+      </div>
+    </header>
+
+    <main class="catalog-main">
+      <section class="catalog-intro" aria-labelledby="adminTitle">
+        <p class="catalog-intro__eyebrow">Управление данными</p>
+        <h1 id="adminTitle">Админ-панель</h1>
+        <p class="catalog-intro__text">Управляйте каталогом товаров и услуг, а также отзывами пользователей через JSON Server.</p>
+        <a class="catalog-intro__back" href="catalog.html">Вернуться в каталог</a>
+      </section>
+
+      <section class="shop-page-section" id="adminContent" aria-labelledby="adminContentTitle" hidden>
+        <h2 id="adminContentTitle" class="visually-hidden">Инструменты администратора</h2>
+        <div class="admin-layout">
+          <article class="admin-panel">
+            <h2 id="productFormTitle">Добавить товар или услугу</h2>
+            <form id="productForm">
+              <input name="productId" type="hidden">
+              <div class="form-grid">
+                <label class="form-field form-field--wide">
+                  <span>Название <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="name" type="text" required minlength="3" maxlength="120" aria-describedby="nameError">
+                  <p class="form-error" id="nameError" data-error-for="name" role="alert"></p>
+                </label>
+
+                <label class="form-field">
+                  <span>Категория <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="category" type="text" required minlength="3" maxlength="80" aria-describedby="categoryError">
+                  <p class="form-error" id="categoryError" data-error-for="category" role="alert"></p>
+                </label>
+
+                <label class="form-field">
+                  <span>Тип <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <select name="type" required aria-describedby="typeError">
+                    <option value="">Выберите тип</option>
+                    <option value="Товар">Товар</option>
+                    <option value="Услуга">Услуга</option>
+                  </select>
+                  <p class="form-error" id="typeError" data-error-for="type" role="alert"></p>
+                </label>
+
+                <label class="form-field">
+                  <span>Цена, BYN <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="price" type="number" min="0" step="1" required aria-describedby="priceError">
+                  <p class="form-error" id="priceError" data-error-for="price" role="alert"></p>
+                </label>
+
+                <label class="form-field">
+                  <span>Рейтинг <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="rating" type="number" min="0" max="5" step="0.1" required aria-describedby="ratingError">
+                  <p class="form-error" id="ratingError" data-error-for="rating" role="alert"></p>
+                </label>
+
+                <label class="form-field form-field--wide">
+                  <span>Путь к изображению <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="image" type="text" placeholder="assets/images/example.png" required aria-describedby="imageError">
+                  <p class="form-error" id="imageError" data-error-for="image" role="alert"></p>
+                </label>
+
+                <label class="form-field form-field--wide">
+                  <span>Описание <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <textarea name="description" minlength="20" maxlength="600" required aria-describedby="descriptionError"></textarea>
+                  <p class="form-error" id="descriptionError" data-error-for="description" role="alert"></p>
+                </label>
+
+                <label class="form-check form-field--wide">
+                  <input name="featured" type="checkbox">
+                  <span>Показывать как рекомендуемую позицию</span>
+                </label>
+
+                <div class="form-actions form-actions--wide">
+                  <button class="form-button" id="productSubmit" type="submit" disabled>Добавить позицию</button>
+                  <button class="form-button-secondary" id="productCancel" type="button" hidden>Отменить редактирование</button>
+                </div>
+                <p class="form-status form-actions--wide" id="productStatus" role="status" aria-live="polite"></p>
+              </div>
+            </form>
+          </article>
+
+          <article class="admin-panel">
+            <h2>Каталог</h2>
+            <p>Изменения выполняются через POST, PUT и DELETE.</p>
+            <ul class="admin-list" id="adminProductList"></ul>
+          </article>
+
+          <article class="admin-panel admin-panel--wide">
+            <h2>Отзывы пользователей</h2>
+            <div class="form-grid">
+              <label class="admin-filter">
+                <span>Фильтр по товару</span>
+                <select id="feedbackProductFilter"><option value="all">Все товары и услуги</option></select>
+              </label>
+              <label class="admin-filter">
+                <span>Фильтр по пользователю</span>
+                <select id="feedbackUserFilter"><option value="all">Все пользователи</option></select>
+              </label>
+            </div>
+            <p class="form-status" id="feedbackAdminStatus" role="status" aria-live="polite"></p>
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <caption class="visually-hidden">Отзывы, отфильтрованные администратором</caption>
+                <thead>
+                  <tr><th>Пользователь</th><th>Позиция</th><th>Оценка</th><th>Отзыв</th><th>Дата</th><th>Действие</th></tr>
+                </thead>
+                <tbody id="feedbackTableBody"></tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="shop-page-section" id="accessDenied" aria-labelledby="accessDeniedTitle" hidden>
+        <div class="admin-panel">
+          <h2 id="accessDeniedTitle">Доступ ограничен</h2>
+          <p>Админ-панель доступна только пользователю с ролью администратора.</p>
+          <a class="form-button form-button--inline" href="account.html?return=admin.html">Войти в профиль</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="catalog-footer" id="contacts">
+      <div class="catalog-footer__inner">
+        <img src="assets/icons/Frame.svg" alt="СТР">
+        <address>Республика Беларусь, г. Могилёв,<br>ул. Ленинская, д. 42</address>
+        <p><a href="tel:+375296482731">+375 (29) 648-27-31</a><br><a href="mailto:info@str-techno.ru">info@str-techno.ru</a></p>
+        <a href="index.html">Главная страница</a>
+      </div>
+    </footer>
+  </div>
+  <div class="shop-notice" id="shopNotice" role="status" aria-live="polite"></div>
+</body>
+</html>

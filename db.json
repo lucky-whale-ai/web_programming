@@ -167,5 +167,22 @@
     }
   ],
   "favorites": [],
-  "cart": []
+  "cart": [],
+  "users": [
+    {
+      "id": 1,
+      "phone": "+375291234567",
+      "email": "admin@str-techno.ru",
+      "birthDate": "1985-01-01",
+      "firstName": "Администратор",
+      "lastName": "СТР",
+      "patronymic": "",
+      "nickname": "strAdmin",
+      "passwordHash": "3bbcee10d86bd0e7624cc25f84f298fa53a0802ea06c4f05a2fa589d517951b6",
+      "role": "admin",
+      "createdAt": "2026-09-05T12:00:00.000Z"
+    }
+  ],
+  "feedback": [],
+  "orders": []
 }

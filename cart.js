@@ -1,16 +1,20 @@
 "use strict";
 
 import {
+  addOrder,
   getCart,
   getFavorites,
+  removeOrder,
   removeCartEntry,
   updateCartEntry
 } from "./api.js";
+import { getCurrentUser } from "./auth-store.js";
 import {
   createElement,
   createStateMessage,
   currencyFormatter,
   getErrorMessage,
+  renderAccountArea,
   setNavigationCounts,
   showNotice
 } from "./shop-ui.js";
@@ -23,6 +27,8 @@ const checkoutButton = document.querySelector("#cartCheckout");
 
 let favorites = [];
 let cart = [];
+
+renderAccountArea();
 
 function getValidCart() {
   return cart.filter((entry) => entry.product);
@@ -169,18 +175,43 @@ function renderCart() {
 }
 
 async function checkout() {
-  if (cart.length === 0) {
+  const validCart = getValidCart();
+
+  if (validCart.length === 0) {
+    return;
+  }
+
+  const currentUser = getCurrentUser();
+
+  if (!currentUser) {
+    window.location.href = "account.html?return=cart.html";
     return;
   }
 
   checkoutButton.disabled = true;
+  const checkoutId = window.crypto.randomUUID?.() || `checkout-${Date.now()}`;
+  const createdOrders = [];
 
   try {
-    await Promise.all(cart.map((entry) => removeCartEntry(entry.id)));
+    for (const entry of validCart) {
+      const order = await addOrder({
+        checkoutId,
+        userId: Number(currentUser.id),
+        productId: Number(entry.product.id),
+        productName: entry.product.name,
+        quantity: Number(entry.quantity),
+        unitPrice: Number(entry.product.price),
+        purchasedAt: new Date().toISOString()
+      });
+      createdOrders.push(order);
+    }
+
+    await Promise.all(validCart.map((entry) => removeCartEntry(entry.id)));
     cart = [];
     renderCart();
     showNotice("Покупка успешно оформлена. Корзина очищена.");
   } catch (error) {
+    await Promise.allSettled(createdOrders.map((order) => removeOrder(order.id)));
     showNotice(getErrorMessage(error), "error");
     await loadCart();
   }

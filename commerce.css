@@ -44,7 +44,7 @@
   background: var(--blue-dark);
 }
 
-.shop-toolbar__links span {
+.shop-toolbar__links a > span {
   display: inline-grid;
   min-width: 24px;
   height: 24px;
@@ -55,6 +55,33 @@
   place-items: center;
   font-size: 12px;
   font-weight: 500;
+}
+
+[data-account-area] {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.shop-account__logout {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid #d8dde0;
+  color: var(--dark);
+  background: #ffffff;
+  cursor: pointer;
+  font: 13px "Ubuntu", Arial, sans-serif;
+  transition:
+    border-color 180ms ease-out,
+    color 180ms ease-out,
+    background-color 180ms ease-out;
+}
+
+.shop-account__logout:hover,
+.shop-account__logout:focus-visible {
+  border-color: var(--blue-dark);
+  color: #ffffff;
+  background: var(--blue-dark);
 }
 
 .catalog-controls {
@@ -480,6 +507,17 @@
     justify-content: space-between;
   }
 
+  [data-account-area] {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  [data-account-area] a,
+  [data-account-area] button {
+    justify-content: center;
+  }
+
   .catalog-controls {
     grid-template-columns: 1fr;
   }
@@ -556,6 +594,10 @@
 @media (max-width: 359.98px) {
   .catalog-card__actions,
   .shop-toolbar__links {
+    grid-template-columns: 1fr;
+  }
+
+  [data-account-area] {
     grid-template-columns: 1fr;
   }
 }

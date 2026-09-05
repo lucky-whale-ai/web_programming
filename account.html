@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация и вход — СТР</title>
+  <link rel="stylesheet" href="styles.css?v=57">
+  <link rel="stylesheet" href="catalog.css?v=3">
+  <link rel="stylesheet" href="commerce.css?v=1">
+  <link rel="stylesheet" href="forms.css?v=1">
+  <script type="module" src="account.js?v=1"></script>
+</head>
+<body class="catalog-page">
+  <div class="catalog-page__canvas">
+    <header class="catalog-header">
+      <div class="catalog-header__top">
+        <a class="catalog-header__brand" href="index.html" aria-label="СТР — на главную">
+          <img src="assets/icons/Frame.svg" alt="СТР — современные технические решения">
+        </a>
+        <p class="catalog-header__location">
+          <img src="assets/icons/Location.svg" alt="">
+          г. Могилёв, ул. Ленинская, д. 42
+        </p>
+        <a class="catalog-header__phone" href="tel:88005553535">8-800-555-35-35</a>
+      </div>
+      <nav class="catalog-nav" aria-label="Навигация по сайту">
+        <div class="catalog-nav__inner">
+          <a href="index.html#about">Компания</a>
+          <a href="catalog.html">Каталог</a>
+          <a href="feedback.html">Отзывы</a>
+          <a href="index.html#contacts">Контакты</a>
+          <a id="adminNavLink" href="admin.html" hidden>Админ-панель</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="catalog-main">
+      <section class="catalog-intro" aria-labelledby="accountTitle">
+        <p class="catalog-intro__eyebrow">Личный кабинет</p>
+        <h1 id="accountTitle">Регистрация и вход</h1>
+        <p class="catalog-intro__text">Создайте профиль, чтобы оформлять покупки и оставлять отзывы на приобретённые решения.</p>
+        <a class="catalog-intro__back" href="catalog.html">Вернуться в каталог</a>
+      </section>
+
+      <section class="shop-page-section" aria-labelledby="accountFormsTitle">
+        <h2 id="accountFormsTitle" class="visually-hidden">Формы пользователя</h2>
+
+        <div class="account-session" id="accountSession" hidden>
+          <span>Вы вошли как <strong id="accountSessionName"></strong>.</span>
+          <button id="accountLogout" type="button">Выйти</button>
+        </div>
+
+        <div class="form-layout">
+          <article class="form-panel">
+            <h2>Войти</h2>
+            <p>Используйте email или номер телефона, указанные при регистрации.</p>
+            <form id="loginForm">
+              <div class="form-grid">
+                <label class="form-field form-field--wide">
+                  <span>Телефон или email <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="login" type="text" autocomplete="username" required aria-describedby="loginError">
+                  <p class="form-error" id="loginError" data-error-for="login" role="alert"></p>
+                </label>
+
+                <label class="form-field form-field--wide">
+                  <span>Пароль <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="loginPassword" type="password" autocomplete="current-password" required aria-describedby="loginPasswordError">
+                  <p class="form-error" id="loginPasswordError" data-error-for="loginPassword" role="alert"></p>
+                </label>
+
+                <div class="form-actions form-actions--wide">
+                  <button class="form-button" type="submit">Войти</button>
+                </div>
+                <p class="form-status form-actions--wide" id="loginStatus" role="status" aria-live="polite"></p>
+              </div>
+            </form>
+          </article>
+
+          <article class="form-panel">
+            <h2>Зарегистрироваться</h2>
+            <p>Все поля со звёздочкой обязательны. Ошибки появятся под соответствующим полем.</p>
+            <form id="registerForm">
+              <div class="form-grid">
+                <label class="form-field">
+                  <span>Имя <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="firstName" type="text" autocomplete="given-name" required minlength="2" maxlength="40" aria-describedby="firstNameError">
+                  <p class="form-error" id="firstNameError" data-error-for="firstName" role="alert"></p>
+                </label>
+
+                <label class="form-field">
+                  <span>Фамилия <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="lastName" type="text" autocomplete="family-name" required minlength="2" maxlength="40" aria-describedby="lastNameError">
+                  <p class="form-error" id="lastNameError" data-error-for="lastName" role="alert"></p>
+                </label>
+
+                <label class="form-field">
+                  <span>Отчество</span>
+                  <input name="patronymic" type="text" autocomplete="additional-name" maxlength="40" aria-describedby="patronymicError">
+                  <p class="form-error" id="patronymicError" data-error-for="patronymic" role="alert"></p>
+                </label>
+
+                <label class="form-field">
+                  <span>Дата рождения <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="birthDate" type="date" autocomplete="bday" required aria-describedby="birthDateError">
+                  <p class="form-error" id="birthDateError" data-error-for="birthDate" role="alert"></p>
+                </label>
+
+                <label class="form-field">
+                  <span>Телефон РБ <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="phone" type="tel" autocomplete="tel" placeholder="+375 29 123-45-67" required aria-describedby="phoneError">
+                  <p class="form-error" id="phoneError" data-error-for="phone" role="alert"></p>
+                </label>
+
+                <label class="form-field">
+                  <span>Email <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="email" type="email" autocomplete="email" required aria-describedby="emailError">
+                  <p class="form-error" id="emailError" data-error-for="email" role="alert"></p>
+                </label>
+
+                <div class="form-field form-field--wide">
+                  <span>Никнейм <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <div class="form-field-with-action">
+                    <input name="nickname" type="text" autocomplete="username" required minlength="3" maxlength="24" pattern="[A-Za-z][A-Za-z0-9_-]{2,23}" aria-describedby="nicknameError nicknameAttempts">
+                    <button class="form-button-secondary" id="generateNickname" type="button">Сгенерировать</button>
+                  </div>
+                  <p class="form-error" id="nicknameError" data-error-for="nickname" role="alert"></p>
+                  <p class="form-attempts" id="nicknameAttempts" aria-live="polite">Никнейм будет предложен автоматически.</p>
+                </div>
+
+                <fieldset class="form-fieldset form-fieldset--wide">
+                  <legend>Способ задания пароля <strong class="form-required" aria-hidden="true">*</strong></legend>
+                  <div class="form-choice-list">
+                    <label class="form-choice"><input type="radio" name="passwordMode" value="manual" checked> Задать самостоятельно</label>
+                    <label class="form-choice"><input type="radio" name="passwordMode" value="automatic"> Сгенерировать автоматически</label>
+                  </div>
+                </fieldset>
+
+                <label class="form-field">
+                  <span>Пароль <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="20" aria-describedby="passwordError passwordHelp">
+                  <p class="form-error" id="passwordError" data-error-for="password" role="alert"></p>
+                  <p class="form-help" id="passwordHelp">8–20 символов: заглавная, строчная буква, цифра и спецсимвол.</p>
+                  <div class="form-password-output" id="generatedPassword" hidden>
+                    <span>Сгенерированный пароль:</span>
+                    <code id="generatedPasswordValue"></code>
+                  </div>
+                </label>
+
+                <label class="form-field">
+                  <span>Повторите пароль <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <input name="passwordConfirm" type="password" autocomplete="new-password" required aria-describedby="passwordConfirmError">
+                  <p class="form-error" id="passwordConfirmError" data-error-for="passwordConfirm" role="alert"></p>
+                </label>
+
+                <label class="form-check form-field--wide">
+                  <input name="agreement" type="checkbox" required aria-describedby="agreementError">
+                  <span>Я прочитал(а) и принимаю «Соглашение пользователя» <strong class="form-required" aria-hidden="true">*</strong></span>
+                </label>
+                <p class="form-error form-actions--wide" id="agreementError" data-error-for="agreement" role="alert"></p>
+
+                <div class="form-actions form-actions--wide">
+                  <button class="form-button" id="registerSubmit" type="submit" disabled>Зарегистрироваться</button>
+                </div>
+                <p class="form-status form-actions--wide" id="registerStatus" role="status" aria-live="polite"></p>
+              </div>
+            </form>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="catalog-footer" id="contacts">
+      <div class="catalog-footer__inner">
+        <img src="assets/icons/Frame.svg" alt="СТР">
+        <address>Республика Беларусь, г. Могилёв,<br>ул. Ленинская, д. 42</address>
+        <p><a href="tel:+375296482731">+375 (29) 648-27-31</a><br><a href="mailto:info@str-techno.ru">info@str-techno.ru</a></p>
+        <a href="index.html">Главная страница</a>
+      </div>
+    </footer>
+  </div>
+  <div class="shop-notice" id="shopNotice" role="status" aria-live="polite"></div>
+</body>
+</html>

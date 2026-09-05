@@ -11,6 +11,7 @@ import {
   createProductCard,
   createStateMessage,
   getErrorMessage,
+  renderAccountArea,
   setNavigationCounts,
   showNotice
 } from "./shop-ui.js";
@@ -21,6 +22,8 @@ const status = document.querySelector("#favoritesStatus");
 let favorites = [];
 let cart = [];
 let cartByProduct = new Map();
+
+renderAccountArea();
 
 function syncState() {
   cartByProduct = new Map(cart.map((entry) => [Number(entry.productId), entry]));

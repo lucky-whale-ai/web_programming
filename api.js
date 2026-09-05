@@ -77,6 +77,79 @@ export async function getAllProducts(options = {}) {
   return response.data;
 }
 
+export async function addProduct(product) {
+  const response = await request("/products", {
+    method: "POST",
+    body: JSON.stringify(product)
+  });
+  return response.data;
+}
+
+export async function updateProduct(productId, product) {
+  const response = await request(`/products/${encodeURIComponent(productId)}`, {
+    method: "PUT",
+    body: JSON.stringify(product)
+  });
+  return response.data;
+}
+
+export async function removeProduct(productId) {
+  await request(`/products/${encodeURIComponent(productId)}`, {
+    method: "DELETE"
+  });
+}
+
+export async function getUsers(params = new URLSearchParams(), options = {}) {
+  const response = await request(withQuery("users", params), options);
+  return response.data;
+}
+
+export async function addUser(user) {
+  const response = await request("/users", {
+    method: "POST",
+    body: JSON.stringify(user)
+  });
+  return response.data;
+}
+
+export async function getOrders(params = new URLSearchParams(), options = {}) {
+  const response = await request(withQuery("orders", params), options);
+  return response.data;
+}
+
+export async function addOrder(order) {
+  const response = await request("/orders", {
+    method: "POST",
+    body: JSON.stringify(order)
+  });
+  return response.data;
+}
+
+export async function removeOrder(orderId) {
+  await request(`/orders/${encodeURIComponent(orderId)}`, {
+    method: "DELETE"
+  });
+}
+
+export async function getFeedback(params = new URLSearchParams(), options = {}) {
+  const response = await request(withQuery("feedback", params), options);
+  return response.data;
+}
+
+export async function addFeedback(feedback) {
+  const response = await request("/feedback", {
+    method: "POST",
+    body: JSON.stringify(feedback)
+  });
+  return response.data;
+}
+
+export async function removeFeedback(feedbackId) {
+  await request(`/feedback/${encodeURIComponent(feedbackId)}`, {
+    method: "DELETE"
+  });
+}
+
 export async function getFavorites(options = {}) {
   const params = new URLSearchParams({
     _expand: "product",

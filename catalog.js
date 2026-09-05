@@ -15,6 +15,7 @@ import {
   createProductCard,
   createStateMessage,
   getErrorMessage,
+  renderAccountArea,
   setNavigationCounts,
   showNotice
 } from "./shop-ui.js";
@@ -47,6 +48,8 @@ const maxPriceInput = document.querySelector("#catalogMaxPrice");
 const minRatingSelect = document.querySelector("#catalogMinRating");
 const resetButton = document.querySelector("#catalogReset");
 const pagination = document.querySelector("#catalogPagination");
+
+renderAccountArea();
 
 let favorites = [];
 let cart = [];

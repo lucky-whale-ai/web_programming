@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отзывы — СТР</title>
+  <link rel="stylesheet" href="styles.css?v=57">
+  <link rel="stylesheet" href="catalog.css?v=3">
+  <link rel="stylesheet" href="commerce.css?v=1">
+  <link rel="stylesheet" href="forms.css?v=1">
+  <script type="module" src="feedback.js?v=1"></script>
+</head>
+<body class="catalog-page">
+  <div class="catalog-page__canvas">
+    <header class="catalog-header">
+      <div class="catalog-header__top">
+        <a class="catalog-header__brand" href="index.html" aria-label="СТР — на главную">
+          <img src="assets/icons/Frame.svg" alt="СТР — современные технические решения">
+        </a>
+        <p class="catalog-header__location">
+          <img src="assets/icons/Location.svg" alt="">
+          г. Могилёв, ул. Ленинская, д. 42
+        </p>
+        <a class="catalog-header__phone" href="tel:88005553535">8-800-555-35-35</a>
+      </div>
+      <nav class="catalog-nav" aria-label="Навигация по сайту">
+        <div class="catalog-nav__inner">
+          <a href="index.html#about">Компания</a>
+          <a href="catalog.html">Каталог</a>
+          <a class="is-active" href="feedback.html" aria-current="page">Отзывы</a>
+          <a href="index.html#contacts">Контакты</a>
+          <a id="adminNavLink" href="admin.html" hidden>Админ-панель</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="catalog-main">
+      <section class="catalog-intro" aria-labelledby="feedbackTitle">
+        <p class="catalog-intro__eyebrow">Опыт клиентов</p>
+        <h1 id="feedbackTitle">Отзывы о решениях</h1>
+        <p class="catalog-intro__text">Оставить отзыв можно только на товар или услугу, которые были приобретены из вашей учётной записи.</p>
+        <a class="catalog-intro__back" href="catalog.html">Вернуться в каталог</a>
+      </section>
+
+      <section class="shop-page-section" aria-labelledby="feedbackFormTitle">
+        <div class="form-layout">
+          <article class="feedback-panel">
+            <h2 id="feedbackFormTitle">Новый отзыв</h2>
+            <p id="feedbackIntro">Проверяем профиль и историю покупок…</p>
+            <form id="feedbackForm">
+              <div class="form-grid">
+                <label class="form-field form-field--wide">
+                  <span>Товар или услуга <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <select name="productId" id="feedbackProduct" required aria-describedby="productIdError">
+                    <option value="">Выберите приобретённую позицию</option>
+                  </select>
+                  <p class="form-error" id="productIdError" data-error-for="productId" role="alert"></p>
+                </label>
+
+                <label class="form-field">
+                  <span>Оценка <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <select name="rating" required aria-describedby="ratingError">
+                    <option value="">Выберите оценку</option>
+                    <option value="5">5 — отлично</option>
+                    <option value="4">4 — хорошо</option>
+                    <option value="3">3 — удовлетворительно</option>
+                    <option value="2">2 — есть замечания</option>
+                    <option value="1">1 — плохо</option>
+                  </select>
+                  <p class="form-error" id="ratingError" data-error-for="rating" role="alert"></p>
+                </label>
+
+                <label class="form-field form-field--wide">
+                  <span>Текст отзыва <strong class="form-required" aria-hidden="true">*</strong></span>
+                  <textarea name="text" minlength="20" maxlength="1200" required aria-describedby="textError textHelp"></textarea>
+                  <p class="form-error" id="textError" data-error-for="text" role="alert"></p>
+                  <p class="form-help" id="textHelp">Минимум 20 символов.</p>
+                </label>
+
+                <div class="form-actions form-actions--wide">
+                  <button class="form-button" id="feedbackSubmit" type="submit" disabled>Отправить отзыв</button>
+                </div>
+                <p class="form-status form-actions--wide" id="feedbackStatus" role="status" aria-live="polite"></p>
+              </div>
+            </form>
+          </article>
+
+          <article class="feedback-panel">
+            <h2>Купленные позиции</h2>
+            <p>Список формируется по истории заказов текущего пользователя.</p>
+            <ul class="feedback-product-list" id="purchasedProducts"></ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="catalog-footer" id="contacts">
+      <div class="catalog-footer__inner">
+        <img src="assets/icons/Frame.svg" alt="СТР">
+        <address>Республика Беларусь, г. Могилёв,<br>ул. Ленинская, д. 42</address>
+        <p><a href="tel:+375296482731">+375 (29) 648-27-31</a><br><a href="mailto:info@str-techno.ru">info@str-techno.ru</a></p>
+        <a href="index.html">Главная страница</a>
+      </div>
+    </footer>
+  </div>
+  <div class="shop-notice" id="shopNotice" role="status" aria-live="polite"></div>
+</body>
+</html>

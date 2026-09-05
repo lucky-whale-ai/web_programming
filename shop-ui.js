@@ -1,5 +1,11 @@
 "use strict";
 
+import {
+  clearCurrentUser,
+  getCurrentUser,
+  isAdmin
+} from "./auth-store.js";
+
 export const currencyFormatter = new Intl.NumberFormat("ru-BY", {
   style: "currency",
   currency: "BYN",
@@ -32,6 +38,34 @@ export function setNavigationCounts(favorites, cart) {
   for (const counter of document.querySelectorAll("[data-cart-count]")) {
     counter.textContent = String(cartCount);
     counter.setAttribute("aria-label", `Товаров в корзине: ${cartCount}`);
+  }
+}
+
+export function renderAccountArea() {
+  const user = getCurrentUser();
+
+  for (const area of document.querySelectorAll("[data-account-area]")) {
+    area.replaceChildren();
+
+    const accountLink = createElement("a", "shop-account__link", user ? "Аккаунт" : "Войти");
+    accountLink.href = "account.html";
+    area.append(accountLink);
+
+    if (user && isAdmin(user)) {
+      const adminLink = createElement("a", "shop-account__link", "Админ-панель");
+      adminLink.href = "admin.html";
+      area.append(adminLink);
+    }
+
+    if (user) {
+      const logoutButton = createElement("button", "shop-account__logout", "Выйти");
+      logoutButton.type = "button";
+      logoutButton.addEventListener("click", () => {
+        clearCurrentUser();
+        window.location.reload();
+      });
+      area.append(logoutButton);
+    }
   }
 }
 
